@@ -1,0 +1,164 @@
+6. Developing views in AJS.
+
+Ans :- 
+
+		AJS framework follows MVC structure to develop web application.
+
+		In MVC C - stands for Views. Views will take care of presentation logic.
+		
+		In AJS applications, views are developed by using :-
+			
+				HTML ( HTML Tags )
+				
+				CSS ( Styles )
+				
+				AJS Directives
+				
+		Model data exists in any of the following ways variables, arrays, objects, array of objects.
+		
+		We can display the model data on the page as per the requirement format.
+		
+		Eg. 
+			List, Span, Div....etc.
+			
+------------------------------------------------------------------------------------
+
+7. AJS Directives
+
+Ans :-
+		AJS Directives plays very important role to generate dynamic content.
+		
+		Directives are look like HTML attributes.
+		
+		Based on the directives, AJS will perform required operation.'
+		
+		AJS framework performs corresponding operations at runtime on the directive.
+		
+		Eg.
+			If you use ng-model directive, AJS perform two-way binding.
+			
+---------------------------------------------------------------------------------------
+
+8. Important Directives
+
+Ans :-
+
+		1.	ng-app
+		
+		2.	ng-init
+		
+		3.	ng-model
+		
+		4. 	ng-repeat
+		
+		5.	ng-controller
+		
+		6.	ng-class
+		
+		7.	ng-show
+		
+		8.	ng-bind
+		
+		9.	ng-view
+		
+		10.	ng-switch
+		
+		11.	ng-if
+		
+		12.	ng-src
+		
+---------------------------------------------------------------------------------------
+
+Ex .5.	Display employee details using AJS.
+
+		<html>
+			<head></head>
+				<body ng-app="">
+					<h3>Developing Views In Angular JS</h3>
+						<hr>
+							<div ng-init="empno=1025; empname='vinay';job='Manager';deptno=20;">
+								<p style="border: 2px solid blue; padding: 10px">
+									Employee No :	{{empno}}<br>
+									Employee Name :	{{empname}}<br>
+									Job :	{{job}}<br>
+									Department No : {{deptno}}
+								</p>
+							</div>
+						<script type="text/javascript" src="angular.js"></script>
+				</body>
+		</html>
+		
+---------------------------------------------------------------------------------------
+
+Ex .6.	Display customer details using AJS.
+
+		<html>
+			<head></head>
+				<body ng-app="">
+					<h3>Developing Views In Angular JS</h3>
+						<hr>
+						<div ng-init="cid=30956;cname='smith';city='Hydrabad';email='smith.john@gmail.com';phno=6823415629">
+							<p style="border: 2px solid blue; padding: 10px;color: blue;background-color: lightyellow;">
+								Customer No :	{{cid}}<br>
+								Customer Name :	{{cname}}<br>
+								City :	{{city}}<br>
+								Email Id : {{email}}<br>
+								Phone No. :	{{phno}}
+							</p>
+						</div>
+					<script type="text/javascript" src="angular.js"></script>
+				</body>
+		</html>
+		
+----------------------------------------------------------------------------------------
+
+Ex .7.	Display array of courses names in list format.
+
+		<html>
+			<head></head>
+				<body ng-app="">
+					<h3>Developing Views In Angular JS</h3>
+						<hr>
+							<div ng-init="courses=['HTML5','CSS3','Bootstrap','Angular JS']">
+								<ol>
+									<li ng-repeat="item in courses">
+										{{item}}
+									</li>
+								</ol>
+							</div>
+						<script type="text/javascript" src="angular.js"></script>
+				</body>
+		</html>
+		
+------------------------------------------------------------------------------------
+
+9.	Processing collections in views.
+
+Ans :-
+		
+		AJS provides a special directive called " ng-repeat " in order to handle the collections.
+		
+-----------------------------------------------------------------------------------------
+
+10. ng-repeat
+
+Ans :-
+
+		ng-repeat directive is used to process the collections like arrays.
+
+		This directive generates the specified tag for every item in the collecton.
+		
+		At the time of execution angular is will process each item from the given collection.
+		
+		It is item based processing insted of index based.
+		
+		Usage :-
+			
+					<tag ng-repeat = " item in ar " >
+							
+							{{ item }}
+							
+					</tag>
+					
+----------------------------------------------------------------------------------------
+

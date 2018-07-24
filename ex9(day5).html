@@ -1,0 +1,23 @@
+<!-- Ex .9. Display array of images using AJS views. -->
+<html>
+	<head>
+		<style type="text/css">
+			img
+			{
+				height: 200px;
+				width: 400px;
+				border: 2px solid black;
+				margin: 5px;
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+	<body ng-app="">
+		<h3>Developing Views In Angular JS</h3>
+			<hr>
+			<div ng-init=" ar = [ 'Image1.jpg', 'Image2.jpg', 'Image3.jpg', 'Image4.jpg', 'Image5.jpg' ] ">
+				<img ng-repeat="item in ar" src="Images/{{item}}">
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+	</body>
+</html>

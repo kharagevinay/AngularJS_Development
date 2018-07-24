@@ -1,0 +1,16 @@
+<!-- Ex .7. Display array of courses names in list format. -->
+<html>
+	<head></head>
+	<body ng-app="">
+		<h3>Developing Views In Angular JS</h3>
+			<hr>
+			<div ng-init="courses=['HTML5','CSS3','Bootstrap','Angular JS']">
+				<ol>
+					<li ng-repeat="item in courses">
+						{{item}}
+					</li>
+				</ol>
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+	</body>
+</html>

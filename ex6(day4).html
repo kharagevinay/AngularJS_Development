@@ -1,0 +1,18 @@
+<!-- Ex .6. Display customer details using AJS. -->
+<html>
+	<head></head>
+	<body ng-app="">
+		<h3>Developing Views In Angular JS</h3>
+			<hr>
+			<div ng-init="cid=30956;cname='smith';city='Hydrabad';email='smith.john@gmail.com';phno=6823415629">
+				<p style="border: 2px solid blue; padding: 10px;color: blue;background-color: lightyellow;">
+					Customer No :	{{cid}}<br>
+					Customer Name :	{{cname}}<br>
+					City :	{{city}}<br>
+					Email Id : {{email}}<br>
+					Phone No. :	{{phno}}
+				</p>
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+	</body>
+</html>

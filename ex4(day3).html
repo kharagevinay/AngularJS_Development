@@ -1,0 +1,20 @@
+<!-- Ex .4. Display selected Image using ng-model. -->
+<html>
+	<head></head>
+	<body ng-app="">
+		<h3>Developing Web Pages Using Angular JS</h3>
+			<hr>
+			<div ng-init="x = 'Image1.jpg'">
+				Select Image :
+					<select ng-model="x">
+						<option>Image1.jpg</option>
+						<option>Image2.jpg</option>
+						<option>Image3.jpg</option>
+						<option>Image4.jpg</option>
+					</select>
+					<br><br>
+					<img src="Images/{{ x }}" width="200" border="2">
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+	</body>
+</html>

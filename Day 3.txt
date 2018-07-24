@@ -1,0 +1,174 @@
+4. Developing Web Pages Using AJS.
+
+Ans :-
+
+		AJS is a structrual framework used for developing dynamic web applications.
+		
+		Developing Web Pages using AJS required following softwares :-
+		
+		1. angular.js ( www.angular.js )
+		
+		2. Notepad / Notepad ++
+		
+		3. Browser
+		
+		Download the angular.js file and place it in the folder where do you save your web pages.
+		
+		Import angular.js file in your web page to implement angular.js programming.
+		
+		Usage :-
+				
+					<script src = " angular.js "></script>
+					
+-----------------------------------------------------------------------------------		
+		
+Ex .1. Create a web page to display student details using AJS.
+
+		<html>
+			<head></head>
+				<body ng-app="">
+					<h3>Developing Web Pages Using Angular JS</h3>
+						<hr>
+							<div ng-init="sid=1025;sname='vinay';cname='Angular JS';duration=30;">
+								Student Id : {{sid}}<br>
+								Student Name : {{sname}}<br>
+								Course Name : {{cname}}<br>
+								Course Duration : {{duration}}
+							</div>
+						<script type="text/javascript" src="angular.js"z></script>
+				</body>
+		</html>
+		
+------------------------------------------------------------------------------------		
+Ex. 2. Display department details using AJS in table formate.
+
+		<html>
+			<head></head>
+				<body ng-app="">
+					<h3>Developing Web Pages Using Angular JS</h3>
+						<hr>
+							<div ng-init="sid=1025;sname='vinay';cname='Angular JS';duration=30;">
+								<table border="2">
+									<tr>
+										<td>Student Id</td>
+										<td>{{sid}}
+									</tr>
+									<tr>
+										<td>Student Name</td>
+										<td>{{sname}}
+									</tr>
+									<tr>
+										<td>Course Name</td>
+										<td>{{cname}}
+									</tr>
+									<tr>
+										<td>Course Duration</td>
+										<td>{{duration}}
+									</tr>
+								</table>
+							</div>
+						<script type="text/javascript" src="angular.js"z></script>
+				</body>
+		</html>
+
+-------------------------------------------------------------------------------------
+
+5. AJS Programming Items.
+
+Ans :- 
+
+		1. ng-app :-
+		
+						ng-app is a angular.js directive.It is consider as entry point of angular application.
+						
+						It specifies that everything inside of it belongs to AJS applications.
+						
+						We can use AJS data inside the tag to which we apply ng-app.
+						
+						We can apply this directive to any tag in html document.
+						
+						ex. 
+						
+							<body ng-app = "">...</body>
+							
+							<div ng-app = "">...</div>
+
+							<p ng-app = "">...</p>
+							
+							
+		2. ng-init :-
+
+						ng-init directive is used to initialize AJS variables.
+						
+						ex.
+						
+							ng-init = " x = ' vinay ' "
+							
+							ng-init = " w = 150; h = 100 "
+							
+		3. {{ expression }} :-
+							
+								It is called AJS expression.
+								
+								It will bind html tags with variables.
+								
+								It is consider as 1-way binding.
+								
+								Generally it is used to display the data to user or set values to html tag attributes.
+								
+		4. ng-model :-
+		
+						ng-model directive binds the value of HTML controls ( input, select, textarea ) to model data.
+						
+						ng-model is an AJS directive used for bind input controls with variables ( AJS Model Variables ).
+						
+						It implements 2-way binding.
+						
+						If the view ( presentation ) changes the value, the model view updates the changes, and if the model changes the value, the view will be updated automatically.
+						
+						ex.
+							<input type = "text" ng-model = " x ">
+							
+-----------------------------------------------------------------------------------
+
+Ex. 3. Display Welcome Message using ng-model.
+
+		<html>
+			<head></head>
+				<body ng-app="">
+					<h3>Developing Web Pages Using Angular JS</h3>
+						<hr>
+							<div ng-init="x = ' vinay '">
+								Enter User Name :
+									<input type="text" ng-model="x">
+									<br>
+									<h1>Welcome to {{ x }}</h1>
+							</div>
+						<script type="text/javascript" src="angular.js"z></script>
+				</body>
+		</html>
+		
+-------------------------------------------------------------------------------------
+
+Ex. 4. Display selected Image using ng-model.
+
+		<html>
+			<head></head>
+				<body ng-app="">
+					<h3>Developing Web Pages Using Angular JS</h3>
+						<hr>
+							<div ng-init="x = 'Image1.jpg'">
+								Select Image :
+									<select ng-model="x">
+										<option>Image1.jpg</option>
+										<option>Image2.jpg</option>
+										<option>Image3.jpg</option>
+									</select>
+										<br><br>
+											<img src="Images/{{ x }}" width="200" border="2">
+							</div>
+						<script type="text/javascript" src="angular.js"></script>
+				</body>
+		</html>
+		
+---------------------------------------------------------------------------------------

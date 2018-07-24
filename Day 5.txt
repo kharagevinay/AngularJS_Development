@@ -1,0 +1,114 @@
+Ex. 8. Display course details in table format.
+
+		<html>
+			<head></head>
+				<body ng-app="">
+					<h3>Developing Views In Angular JS</h3>
+						<hr>
+						<div ng-init="courses=['HTML5','CSS3','Bootstrap','Angular JS','CSS3']">
+							<table border="2">
+								<tr>
+									<th>S.No</th>
+									<th>Course</th>
+								</tr>
+								<tr ng-repeat = "item in courses track by $index">
+									<td>{{$index + 1}}</td>
+									<td>
+										{{item}}
+									</td>
+								</tr>
+							</table>
+						</div>
+					<script type="text/javascript" src="angular.js"></script>
+				</body>
+		</html>
+		
+---------------------------------------------------------------------------------------
+
+Ex. 9. Display array of images using AJS views.
+
+
+		<html>
+			<head>
+				<style type="text/css">
+					img
+					{
+						height: 200px;
+						width: 400px;
+						border: 2px solid black;
+						margin: 5px;
+						border-radius: 10px;
+					}
+				</style>
+			</head>
+			<body ng-app="">
+				<h3>Developing Views In Angular JS</h3>
+					<hr>
+					<div ng-init=" ar = [ 'Image1.jpg', 'Image2.jpg', 'Image3.jpg', 'Image4.jpg', 'Image5.jpg' ] ">
+						<img ng-repeat="item in ar" src="Images/{{item}}">
+					</div>
+					<script type="text/javascript" src="angular.js"></script>
+			</body>
+		</html>
+
+---------------------------------------------------------------------------------------
+
+Ex. 10. Display images using table format.
+
+		<html>
+			<head>
+				<style type="text/css">
+					img
+					{
+						height: 100px;
+						width: 150px;
+						border: 2px solid black;
+						margin: 5px;
+						border-radius: 10px;
+					}
+				</style>
+			</head>
+			<body ng-app="">
+				<h3>Developing Views In Angular JS</h3>
+					<hr>
+					<div ng-init=" ar = [ 'Image1.jpg', 'Image2.jpg', 'Image3.jpg', 'Image4.jpg', 'Image5.jpg' ] ">
+						<table border="2" width="500">
+							<tr>
+								<th>S.No</th>
+								<th>Image Name</th>
+								<th>Image</th>
+							</tr>
+							<tr ng-repeat="item in ar">
+								<td>{{$index +1}}</td>
+								<td>{{item}}</td>
+								<td align="center"><img src="Images/{{item}}"></td>
+							</tr>
+						</table>
+					</div>
+					<script type="text/javascript" src="angular.js"></script>
+			</body>
+		</html>
+		
+---------------------------------------------------------------------------------------
+
+Ex. 11. Display department details in view using object concept.
+
+		<html>
+			<head></head>
+			<body ng-app="">
+				<h3>Developing Views In Angular JS</h3>
+					<hr>
+					<div ng-init="deptObj = { deptno : 10, dname : 'Account', loc : 'Pune'}">
+						<h3>
+							Department No. : {{deptObj.deptno}}<br>
+							Department Name. : {{deptObj.dname}}<br>
+							Location : {{deptObj.loc}}
+						</h3>
+					</div>
+					<script type="text/javascript" src="angular.js"></script>
+			</body>
+		</html>
+
+-------------------------------------------------------------------------------------
+
+

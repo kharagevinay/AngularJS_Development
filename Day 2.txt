@@ -1,0 +1,81 @@
+3. AJS Features.
+
+Ans :-
+	
+	1.	Structural Programming :-
+									AJS is a structural programming.
+									
+									It uses MVC structure (pattern) to developing application.
+									
+									In MVC structure, application development is split into three modules,
+									
+									Model		-		Data Storage
+									
+									View		-		Data Presentation
+									
+									Controller	-		Data Processing
+									
+									MVC structure makes development, testing, maintenance (modifications) will be more comfortable.
+									
+									
+	2.  Data Binding :-
+							Data Binding is the primary feature of AJS.
+							
+							In Data Binding, Model data is bind with view (HTML Tage).
+							
+							First time in client side framework, AJS introduced this Data Binding concept.
+							
+							This feature will reduce lot of client side coding which is related to data presentation (View).
+							
+							Due to Data Binding, if model updates view will update automatically.
+							
+							
+	3.  Parallel Develpment :- 
+								In AJS application, multiple programmers works parallel on controllers, Models and Views.
+								
+								We are creating in separate files to implement each module.
+								
+								eg.
+									View				-		*.html
+									
+									Controller/Model	-		*.js
+									
+								Controller handles the Model data.
+								
+								This feature makes your application development more faster.
+								
+								If you write view content and controller code in same file, only one programmer will work at a time.
+								
+								
+	4. HTML as Template :-
+							AJS uses existing HTML tages as a template for views preperation.
+							
+							AJS provides directives (like attribues) to implement these template.
+							
+							At the time of execution AJS framework executes these template to generate actual content.
+							
+							eg.
+								<ul>
+									<li ng-repeat = " item in ar ">
+										{{ item}}
+									</li>
+								</ul>
+								
+	5. Highly Testable :-
+							AJS application are more comfortable to perform Unit Testing.
+							
+							Due to MVC structure, we can easily test required module in the application.
+							
+							AJS applications are tested by using Test Automation tools like "Jasmine" and "Karma".
+							
+							
+	6. Routing Support For SPA :-
+									SPA means Single Page Application.
+									
+									In SPA, only main page will loaded from server.
+									
+									Remaining all requests are processed at client side without reloading the whole page.
+									
+									AJS Routing concept organizing multiple routes for multiple requests within single page.
+
+----------------------------------------------------------------------------------------

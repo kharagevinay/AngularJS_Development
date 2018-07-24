@@ -1,0 +1,16 @@
+<!-- Ex .11. Display department details in view using object concept. -->
+<html>
+	<head></head>
+	<body ng-app="">
+		<h3>Developing Views In Angular JS</h3>
+			<hr>
+			<div ng-init="deptObj = { deptno : 10, dname : 'Account', loc : 'Pune'}">
+				<h3>
+					Department No. : {{deptObj.deptno}}<br>
+					Department Name. : {{deptObj.dname}}<br>
+					Location : {{deptObj.loc}}
+				</h3>
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+	</body>
+</html>

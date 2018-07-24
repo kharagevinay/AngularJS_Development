@@ -1,0 +1,60 @@
+
+								Introduction to AJS
+								~~~~~~~~~~~~~~~~~~~
+1.	What is AJS?
+
+Ans. 	AJS is a structural framework for developing dynamic web applications.
+
+		It is a open source framework powered by Google.
+		
+		AJS is not replacement of Javascript.
+		
+		In fact it is developed using Javascript.
+		
+		It makes client side programming is easy.
+		
+Note :-
+		Framework	=	Library		+		Runtime
+		
+---------------------------------------------------------------------------------------	
+2.	MVC in AJS.
+
+Ans.	AJS is a structural framework for developing dynamic web applications.
+
+		According to MVC pattern, application development process is split into three modules:-
+		
+		1.	Model		-		Data Storage.
+		
+		2.	View		-		Presentation Logic.
+		
+		3.	Controller	-		Processing Logic.
+		
+		
+		1. 	Model :-
+						Model is responsible for data storage related logic.
+						
+						An AJS model is implemented by using Javascript variables, arrays and objects.
+						
+						At the time of execution of database related applications, model data will be exchanged beetween client and server using AJAX.
+						
+		2.	View  :-
+						View is responsible for presentation ( UI ) logic.
+						
+						View will take care of how to display model data end-user.
+						
+						In AJS, views are implemented by using HTML, CSS and AJS directives.
+						
+	Note :-	
+			AJS directives are similar to HTML attributes.
+			
+				
+		3. 	Controller :-
+							Controller is responsible for processing logic.
+							
+							It prepares model data and make it avaliable to view.
+							
+							It acts as mediator between Model and View.
+							
+							In AJS, controllers are developed by JS functions.
+							
+--------------------------------------------------------------------------------------

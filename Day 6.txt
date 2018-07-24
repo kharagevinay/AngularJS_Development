@@ -1,0 +1,169 @@
+11. Controllers in AJS.
+
+Ans. :- 
+	
+		Controllers in AJS are used to develop the application logic which is required to develop Views and Models.
+		
+		Controller plays very important role in AJS application.
+		
+		Controllers are Javascript functions which provide data and logic to view (UI).
+		
+		Controllers are control the data flows from the server ( Model Data ) to view.
+		
+		Controller can communicate with server to get database information from server.
+		
+		Controllers contain variables ( Model Data ) and functions in order to process application logic.
+		
+---------------------------------------------------------------------------------------
+
+12. Steps to Create Controller.
+
+Ans. :-
+
+		Step 1 :-
+		
+					Create Module.
+					
+					Syntax :-
+								var app = angular.module("ModuleName",[]);
+								
+					Ex. :-
+								var app = angular.module("myApp",[]);
+								
+		Step 2 :-
+		
+					Create Controller.
+					
+					Syntax :-
+								app.controller("ControllerName",function($scope)
+								{
+								
+									//attach model data to $scope.
+								
+								});
+								
+					Ex. :-
+						
+								app.controller("demoController",function($scope)
+								{
+								
+									//attach model data to $scope.
+													
+								});
+								
+		Step 3 :-
+		
+					Prepare required members inside the controller with $scope.
+						
+					Ex. :-
+							
+							$scope.uname = "Scott";
+							
+--------------------------------------------------------------------------------------
+
+13. Steps to access Data to View.
+
+Ans. :-
+	
+		Step 1 :-
+				
+					Referring Module.
+					
+					Syntax :-
+						
+								ng-app = "ModuleName";
+								
+					Ex. :-
+					
+							ng-app = "myApp";
+							
+		Step 2 :-
+		
+					Referring Controller.
+					
+					Syntax :-
+					
+								ng-controller = "ControllerName";
+								
+					Ex. :-
+					
+								ng-controller = "demoController";
+								
+		Step 3 :-
+		
+					Access the data in view.
+					
+					Ex. :-
+					
+							{{ uname }}
+							
+----------------------------------------------------------------------------------------
+
+Note :-
+
+		No nees to specify the $scope in view.
+		
+		{{ $scope.uname }}		->		Wrong
+		
+		{{ uname }}				->		Correct
+		
+----------------------------------------------------------------------------------------
+
+14. What is $scope? Puropose of $scope?
+
+Ans. :-
+
+		$scope is pre-defined object in AJS Framework.
+		
+		At runtime AJS framework will inject " $scope " object for every controllers.
+		
+		Members ( variables + functions ) that you want to share with view, should be attached with " $scope ".
+		
+		We can attach all types of adata with $scope.
+		
+		Ex. :-
+		
+				Numbers, Strings, Arrays, Objects, Functions etc...
+				
+		Sample Usage :-
+				
+						//Variables
+						
+						$scope.sid = 1025;
+						
+						$scope.sname = "scott";
+						
+						//Array
+						
+						$scope.courses = ["HTML5","CSS3","Angular JS"];
+						
+						//Object
+						
+						$scope.deptObj = { deptno : 10, dname : "Accounts"};
+						
+---------------------------------------------------------------------------------------
+
+Ex. 12.	Create a web page to display Welcome message using Controller.
+
+		<html>
+			<head></head>
+			<body ng-app="myApp">
+				<h3>Controllers In Angular JS</h3>
+					<hr>
+						<div ng-controller="demoController">
+							<h3>Welcome to {{uname}}</h3>
+						</div>
+					</div>
+					<script type="text/javascript" src="angular.js"></script>
+					<script type="text/javascript">
+						var app = angular.module("myApp",[]);
+						app.controller("demoController",function($scope)
+						{
+							$scope.uname = "Vinay";	
+						});
+					</script>
+			</body>
+		</html>
+
+					
+		

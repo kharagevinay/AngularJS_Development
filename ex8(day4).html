@@ -1,0 +1,23 @@
+<!-- Ex .8. Display course details in table format. -->
+<html>
+	<head></head>
+	<body ng-app="">
+		<h3>Developing Views In Angular JS</h3>
+			<hr>
+			<div ng-init="courses=['HTML5','CSS3','Bootstrap','Angular JS','CSS3','HTML5']">
+				<table border="2">
+					<tr>
+						<th>S.No</th>
+						<th>Course</th>
+					</tr>
+					<tr ng-repeat = "item in courses track by $index">
+						<td>{{$index + 1}}</td>
+						<td>
+							{{item}}
+						</td>
+					</tr>
+				</table>
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+	</body>
+</html>
