@@ -1,0 +1,41 @@
+<!-- Ex .14. Processing Array of objects using Controller. ( Table Format )-->
+<html>
+	<head>
+		<style type="text/css">
+			table{
+				height: 300px;
+				font-size: 20px;
+			}
+			table tr td{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<h3>Controllers In Angular JS</h3>
+			<hr>
+				<div ng-controller="demoController">
+					<table border="2" width="550">
+						<tr>
+							<th>Student Id</th>
+							<th>Student Name</th>
+							<th>Course Name</th>
+						</tr>
+						<tr ng-repeat = "item in stud">
+							<td style="color: red">{{item.sid}}</td>
+							<td style="color: green">{{item.sname}}</td>
+							<td style="color: blue">{{item.cname}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript">
+				var app = angular.module("myApp",[]);
+				app.controller("demoController",function($scope)
+				{
+					$scope.stud = [ {sid : 1025, sname : "Scott", cname : "Angular JS"},{sid : 1026, sname : "Smith", cname : "HTML5"},{sid : 1027, sname : "Sham", cname : "CSS3"},{sid : 1028, sname : "Amit", cname : "Bootstrap"},{sid : 1029, sname : "Nayan", cname : "jQuery"} ];	
+				});
+			</script>
+	</body>
+</html>
