@@ -1,4 +1,3 @@
-
 								Introduction to AJS
 								~~~~~~~~~~~~~~~~~~~
 1.	What is AJS?

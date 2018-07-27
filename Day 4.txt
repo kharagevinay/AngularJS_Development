@@ -72,20 +72,31 @@ Ans :-
 Ex .5.	Display employee details using AJS.
 
 		<html>
-			<head></head>
-				<body ng-app="">
-					<h3>Developing Views In Angular JS</h3>
-						<hr>
-							<div ng-init="empno=1025; empname='vinay';job='Manager';deptno=20;">
-								<p style="border: 2px solid blue; padding: 10px">
-									Employee No :	{{empno}}<br>
-									Employee Name :	{{empname}}<br>
-									Job :	{{job}}<br>
-									Department No : {{deptno}}
-								</p>
-							</div>
-						<script type="text/javascript" src="angular.js"></script>
-				</body>
+			<head>
+				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+				</style>
+			</head>
+			<body ng-app="">
+				<h3>Developing Views In Angular JS</h3>
+					<hr>
+					<div ng-init="empno=1025; empname='vinay';job='Manager';deptno=20;">
+						<p style="border: 2px solid blue; padding: 10px">
+							Employee No :	{{empno}}<br>
+							Employee Name :	{{empname}}<br>
+							Job :	{{job}}<br>
+							Department No : {{deptno}}
+						</p>
+					</div>
+					<script type="text/javascript" src="angular.js"></script>
+			</body>
 		</html>
 		
 ---------------------------------------------------------------------------------------
@@ -93,41 +104,74 @@ Ex .5.	Display employee details using AJS.
 Ex .6.	Display customer details using AJS.
 
 		<html>
-			<head></head>
-				<body ng-app="">
-					<h3>Developing Views In Angular JS</h3>
-						<hr>
-						<div ng-init="cid=30956;cname='smith';city='Hydrabad';email='smith.john@gmail.com';phno=6823415629">
-							<p style="border: 2px solid blue; padding: 10px;color: blue;background-color: lightyellow;">
-								Customer No :	{{cid}}<br>
-								Customer Name :	{{cname}}<br>
-								City :	{{city}}<br>
-								Email Id : {{email}}<br>
-								Phone No. :	{{phno}}
-							</p>
-						</div>
-					<script type="text/javascript" src="angular.js"></script>
-				</body>
-		</html>
+		<head>
+			<style type="text/css">
+				h3{
+					text-align: center;
+					padding: 20px;
+					font-size: 30px;
+					background-color: lightblue;
+					color: white;
+					margin: 0;
+				}
+			</style>
+		</head>
+		<body ng-app="">
+			<h3>Developing Views In Angular JS</h3>
+				<hr>
+				<div ng-init="cid=30956;cname='smith';city='Hydrabad';email='smith.john@gmail.com';phno=6823415629">
+					<p style="border: 2px solid blue; padding: 10px;color: blue;background-color: lightyellow;">
+						Customer No :	{{cid}}<br>
+						Customer Name :	{{cname}}<br>
+						City :	{{city}}<br>
+						Email Id : {{email}}<br>
+						Phone No. :	{{phno}}
+					</p>
+				</div>
+				<script type="text/javascript" src="angular.js"></script>
+		</body>
+	</html>
 		
 ----------------------------------------------------------------------------------------
 
 Ex .7.	Display array of courses names in list format.
 
 		<html>
-			<head></head>
-				<body ng-app="">
-					<h3>Developing Views In Angular JS</h3>
-						<hr>
-							<div ng-init="courses=['HTML5','CSS3','Bootstrap','Angular JS']">
-								<ol>
-									<li ng-repeat="item in courses">
-										{{item}}
-									</li>
-								</ol>
-							</div>
-						<script type="text/javascript" src="angular.js"></script>
-				</body>
+			<head>
+				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+					li{
+						background-color: yellow;
+						padding: 20px;
+						margin: 10px;
+						color: red;
+					}
+					ol li:hover{
+						background-color: green;
+						color: black;
+						cursor: pointer;
+					}
+				</style>
+			</head>
+			<body ng-app="">
+				<h3>Developing Views In Angular JS</h3>
+					<hr>
+					<div ng-init="courses=['HTML5','CSS3','Bootstrap','Angular JS']">
+						<ol>
+							<li ng-repeat="item in courses">
+								{{item}}
+							</li>
+						</ol>
+					</div>
+					<script type="text/javascript" src="angular.js"></script>
+			</body>
 		</html>
 		
 ------------------------------------------------------------------------------------

@@ -25,50 +25,81 @@ Ans :-
 Ex .1. Create a web page to display student details using AJS.
 
 		<html>
-			<head></head>
-				<body ng-app="">
-					<h3>Developing Web Pages Using Angular JS</h3>
-						<hr>
-							<div ng-init="sid=1025;sname='vinay';cname='Angular JS';duration=30;">
-								Student Id : {{sid}}<br>
-								Student Name : {{sname}}<br>
-								Course Name : {{cname}}<br>
-								Course Duration : {{duration}}
-							</div>
-						<script type="text/javascript" src="angular.js"z></script>
-				</body>
+			<head>
+				<style type="text/css">
+				
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+				
+					p{
+						border: 2px solid blue; 
+						padding: 10px;
+						color: blue;
+						background-color: lightyellow;
+					}
+				</style>
+			</head>
+			<body ng-app="">
+				<h3>Developing Web Pages Using Angular JS</h3>
+					<hr>
+					<div ng-init="sid=1025;sname='vinay';cname='Angular JS';duration=30;">
+						<p>
+							Student Id : {{sid}}<br>
+							Student Name : {{sname}}<br>
+							Course Name : {{cname}}<br>
+							Course Duration : {{duration}}
+						</p>
+					</div>
+					<script type="text/javascript" src="angular.js"z></script>
+			</body>
 		</html>
 		
 ------------------------------------------------------------------------------------		
 Ex. 2. Display department details using AJS in table formate.
 
 		<html>
-			<head></head>
-				<body ng-app="">
-					<h3>Developing Web Pages Using Angular JS</h3>
-						<hr>
-							<div ng-init="sid=1025;sname='vinay';cname='Angular JS';duration=30;">
-								<table border="2">
-									<tr>
-										<td>Student Id</td>
-										<td>{{sid}}
-									</tr>
-									<tr>
-										<td>Student Name</td>
-										<td>{{sname}}
-									</tr>
-									<tr>
-										<td>Course Name</td>
-										<td>{{cname}}
-									</tr>
-									<tr>
-										<td>Course Duration</td>
-										<td>{{duration}}
-									</tr>
-								</table>
-							</div>
-						<script type="text/javascript" src="angular.js"z></script>
-				</body>
+			<head>
+				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+				</style>
+			</head>
+			<body ng-app="">
+				<h3>Developing Web Pages Using Angular JS</h3>
+					<hr>
+					<div ng-init="sid=1025;sname='vinay';cname='Angular JS';duration=30;">
+						<table border="2" align="center" style="background-color: lightblue;width: 300px;height: 200px;text-align: center;">
+							<tr>
+								<td>Student Id</td>
+								<td>{{sid}}
+							</tr>
+							<tr>
+								<td>Student Name</td>
+								<td>{{sname}}
+							</tr>
+							<tr>
+								<td>Course Name</td>
+								<td>{{cname}}
+							</tr>
+							<tr>
+								<td>Course Duration</td>
+								<td>{{duration}}
+							</tr>
+						</table></div>
+					<script type="text/javascript" src="angular.js"z></script>
+			</body>
 		</html>
 
 -------------------------------------------------------------------------------------
@@ -134,18 +165,29 @@ Ans :-
 Ex. 3. Display Welcome Message using ng-model.
 
 		<html>
-			<head></head>
-				<body ng-app="">
-					<h3>Developing Web Pages Using Angular JS</h3>
-						<hr>
-							<div ng-init="x = ' vinay '">
-								Enter User Name :
-									<input type="text" ng-model="x">
-									<br>
-									<h1>Welcome to {{ x }}</h1>
-							</div>
-						<script type="text/javascript" src="angular.js"z></script>
-				</body>
+			<head>
+				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+				</style>
+			</head>
+			<body ng-app="">
+				<h3>Developing Web Pages Using Angular JS</h3>
+					<hr>
+					<div ng-init="x = ' vinay '">
+						Enter User Name :
+							<input type="text" ng-model="x">
+							<br>
+							<h1>Welcome to {{ x }}</h1>
+					</div>
+					<script type="text/javascript" src="angular.js"z></script>
+			</body>
 		</html>
 		
 -------------------------------------------------------------------------------------
@@ -153,22 +195,34 @@ Ex. 3. Display Welcome Message using ng-model.
 Ex. 4. Display selected Image using ng-model.
 
 		<html>
-			<head></head>
-				<body ng-app="">
-					<h3>Developing Web Pages Using Angular JS</h3>
-						<hr>
-							<div ng-init="x = 'Image1.jpg'">
-								Select Image :
-									<select ng-model="x">
-										<option>Image1.jpg</option>
-										<option>Image2.jpg</option>
-										<option>Image3.jpg</option>
-									</select>
-										<br><br>
-											<img src="Images/{{ x }}" width="200" border="2">
-							</div>
-						<script type="text/javascript" src="angular.js"></script>
-				</body>
+			<head>
+				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+				</style>
+			</head>
+			<body ng-app="">
+				<h3>Developing Web Pages Using Angular JS</h3>
+					<hr>
+					<div ng-init="x = 'Image1.jpg'">
+						Select Image :
+							<select ng-model="x">
+								<option>Image1.jpg</option>
+								<option>Image2.jpg</option>
+								<option>Image3.jpg</option>
+								<option>Image4.jpg</option>
+							</select>
+							<br><br>
+							<img src="Images/{{ x }}" width="700" border="2">
+					</div>
+					<script type="text/javascript" src="angular.js"></script>
+			</body>
 		</html>
 		
 ---------------------------------------------------------------------------------------

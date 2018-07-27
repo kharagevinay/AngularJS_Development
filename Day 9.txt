@@ -3,6 +3,14 @@ Ex. 17.	Display student details with different format using ng-switch (Radio But
 		<html>
 			<head>
 				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
 					.c1{
 						background-color: blue;
 						color: white;
@@ -20,6 +28,47 @@ Ex. 17.	Display student details with different format using ng-switch (Radio But
 						float: left;
 						text-align: center;
 						font-size: 20px;
+					}
+					li{
+						background-color: yellow;
+						padding: 20px;
+						margin: 10px;
+						color: red;
+						font-size: 20px;
+					}
+					ol li:hover{
+						background-color: green;
+						color: black;
+						cursor: pointer;
+					}
+					table , th , td{
+					border: none;
+					text-align: center;
+					padding: 10px;
+					font-size: 25px;
+					}
+					table{
+						width: 100%;
+					}
+					th{
+						background-color: #214328;
+						color: white;
+					}
+					tr:nth-child(even){
+						background-color: #4CAF50;
+						color: white;
+					}
+					tr:nth-child(odd){
+						background-color: #54b275;
+						color: white;
+					}
+					th , td{
+						border-radius: 50px;
+					}
+					td:hover{
+						background-color: lightgreen;
+						color: black;
+						cursor: pointer;
 					}
 				</style>
 			</head>
@@ -142,23 +191,43 @@ Ans :-
 Ex. 18. Display product details using AJS Filters.
 
 		<html>
-			<head></head>
+			<head>
+				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+					p{
+						text-align: center;
+						padding: 1px;
+						font-size: 30px;
+						background-color: orange;
+						color: white;
+						margin: 0;
+					}
+				</style>
+			</head>
 			<body ng-app="myApp">
 				<h3>Controllers In Angular JS</h3>
 					<hr>
 					<div ng-controller="demoController">
-						<h3>With Filter</h3>
-						Product Id :- {{pid}}<br>
-						Product Name :- {{pname | uppercase}}<br>
-						Brand Name :- {{brand | lowercase}}<br>
-						Product Price :- {{price | currency:"RS."}}<br>
-						<hr>
-						<h3>Without Filter</h3>
-						Product Id :- {{pid}}<br>
-						Product Name :- {{pname}}<br>
-						Brand Name :- {{brand}}<br>
-						Product Price :- {{price}}<br>
-						
+						<p>With Filter</p>
+						<br>
+							Product Id :- {{pid}}<br>
+							Product Name :- {{pname | uppercase}}<br>
+							Brand Name :- {{brand | lowercase}}<br>
+							Product Price :- {{price | currency:"RS."}}<br>
+							<hr>
+							<p>Without Filter</p>
+							<br>
+							Product Id :- {{pid}}<br>
+							Product Name :- {{pname}}<br>
+							Brand Name :- {{brand}}<br>
+							Product Price :- {{price}}<br>				
 					</div>
 					<script type="text/javascript" src="angular.js"></script>
 					<script type="text/javascript">
@@ -179,21 +248,72 @@ Ex. 18. Display product details using AJS Filters.
 Ex. 19. Example to perform sorting using orderBy.
 
 		<html>
-			<head></head>
+			<head>
+				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+					table , th , td{
+					border: none;
+					text-align: center;
+					padding: 10px;
+					font-size: 25px;
+					}
+					table{
+						width: 100%;
+					}
+					th{
+						background-color: #214328;
+						color: white;
+					}
+					tr:nth-child(even){
+						background-color: #4CAF50;
+						color: white;
+					}
+					tr:nth-child(odd){
+						background-color: #54b275;
+						color: white;
+					}
+					th , td{
+						border-radius: 50px;
+					}
+					td:hover{
+						background-color: lightgreen;
+						color: black;
+						cursor: pointer;
+					}
+					span{
+						font-size: 30px;
+					}
+					input[type='checkbox']{
+						height: 20px;
+						width:50px;
+					}
+					select{
+						height: 30px;
+						width:150px;
+					}
+				</style>
+			</head>
 			<body ng-app="myApp">
 				<h3>Controllers In Angular JS</h3>
 					<hr>
 					<div ng-controller="demoController">
-						Select Sort Property : -
+						<span>Select Sort Property : -</span>
 							<select ng-model="x">
 								<option value="" disabled="disabled">Select Option</option>		
 								<option>sname</option>
 								<option>course</option>
-							</select>			
-							<br>
-							Do you want to decending order?
+							</select>		
+							<br><br><br>
+							<span>Do you want to decending order?</span>
 							<input type="checkbox" name="" ng-model="y">
-							<br>
+							<br><br><br>
 							<table border="2">
 								<tr>
 									<th>Student Name</th>
@@ -209,7 +329,7 @@ Ex. 19. Example to perform sorting using orderBy.
 						var app = angular.module("myApp",[]);
 						app.controller("demoController",function($scope)
 						{
-							$scope.ar = [{sname:"smith",course:"AJS"},
+							$scope.ar = [{sname:"Smith",course:"AJS"},
 										{sname:"Amit",course:"HTML"},
 										{sname:"Zuber",course:"AJS"},
 										{sname:"Ram",course:"CSS"}];
@@ -223,7 +343,85 @@ Ex. 19. Example to perform sorting using orderBy.
 Ex. 20. Example to perform sorting using orderBy. (using hyperlink)
 
 		<html>
-			<head></head>
+			<head>
+				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+					.c1{
+						background-color: blue;
+						color: white;
+						margin: 0px;
+					}
+					.c2{
+						color: blue;
+					}
+					.c3{
+						border:2px solid blue;
+						margin: 5px;
+						width: 130px;
+						height: 70px;
+						padding: 0px;
+						float: left;
+						text-align: center;
+						font-size: 20px;
+					}
+					li{
+						background-color: yellow;
+						padding: 20px;
+						margin: 10px;
+						color: red;
+						font-size: 20px;
+					}
+					ol li:hover{
+						background-color: green;
+						color: black;
+						cursor: pointer;
+					}
+					table , th , td{
+					border: none;
+					text-align: center;
+					padding: 10px;
+					font-size: 25px;
+					}
+					table{
+						width: 100%;
+					}
+					th{
+						background-color: green;
+						color: white;
+					}
+					tr:nth-child(even){
+						background-color: #4CAF50;
+						color: white;
+					}
+					tr:nth-child(odd){
+						background-color: #54b275;
+						color: white;
+					}
+					th , td{
+						border-radius: 50px;
+					}
+					td:hover{
+						background-color: lightgreen;
+						color: black;
+						cursor: pointer;
+					}
+				</style>
+			</head>
 			<body ng-app="myApp">
 				<h3>Controllers In Angular JS</h3>
 					<hr>

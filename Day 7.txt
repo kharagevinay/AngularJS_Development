@@ -1,15 +1,27 @@
-
 Ex. 13. Processing Array of objects using Controller.
 
 		<html>
 			<head>
 				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
 					p{
 						border: 2px solid black;
 						padding: 10px;
 						border-radius: 10px;
 						width: 150px;
 						font-size: 20px;
+						background-color: orange;
+					}
+					p:hover{
+						background-color: green;
+						color: white;
 					}
 				</style>
 			</head>
@@ -42,12 +54,42 @@ Ex. 14. Processing Array of objects using Controller. ( Table Format )
 		<html>
 			<head>
 				<style type="text/css">
-					table{
-						height: 300px;
-						font-size: 20px;
-					}
-					table tr td{
+					h3{
 						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+					table , th , td{
+					border: none;
+					text-align: center;
+					padding: 10px;
+					font-size: 25px;
+					}
+					table{
+						width: 100%;
+					}
+					th{
+						background-color: #214328;
+						color: white;
+					}
+					tr:nth-child(even){
+						background-color: #4CAF50;
+						color: white;
+					}
+					tr:nth-child(odd){
+						background-color: #54b275;
+						color: white;
+					}
+					th , td{
+						border-radius: 50px;
+					}
+					td:hover{
+						background-color: lightgreen;
+						color: black;
+						cursor: pointer;
 					}
 				</style>
 			</head>
