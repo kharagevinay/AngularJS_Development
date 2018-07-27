@@ -1,11 +1,25 @@
 <!-- Ex .12. Create a web page to display Welcome message using Controller. -->
 <html>
-	<head></head>
+	<head>
+		<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+			p{
+				font-size: 50px;
+			}
+		</style>
+	</head>
 	<body ng-app="myApp">
 		<h3>Controllers In Angular JS</h3>
 			<hr>
 				<div ng-controller="demoController">
-					<h3>Welcome to {{uname}}</h3>
+					<p>Welcome to {{uname}}</p>
 				</div>
 			</div>
 			<script type="text/javascript" src="angular.js"></script>

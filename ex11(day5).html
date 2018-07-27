@@ -1,15 +1,33 @@
 <!-- Ex .11. Display department details in view using object concept. -->
 <html>
-	<head></head>
+	<head>
+		<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+			p{
+				border: 2px solid blue; 
+				padding: 10px;
+				color: blue;
+				background-color: lightyellow;
+				font-size: 20px;
+			}
+		</style>
+	</head>
 	<body ng-app="">
 		<h3>Developing Views In Angular JS</h3>
 			<hr>
 			<div ng-init="deptObj = { deptno : 10, dname : 'Account', loc : 'Pune'}">
-				<h3>
+				<p>
 					Department No. : {{deptObj.deptno}}<br>
 					Department Name. : {{deptObj.dname}}<br>
 					Location : {{deptObj.loc}}
-				</h3>
+				</p>
 			</div>
 			<script type="text/javascript" src="angular.js"></script>
 	</body>

@@ -1,11 +1,54 @@
 <!-- Ex .8. Display course details in table format. -->
 <html>
-	<head></head>
+	<head>
+		<style type="text/css">
+			body{
+	            font-family: "Comic Sans MS", sans-serif;
+	        }
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+			table , th , td{
+            border: none;
+            text-align: center;
+            padding: 10px;
+            font-size: 25px;
+	        }
+	        table{
+	            width: 100%;
+	        }
+	        th{
+	            background-color: #214328;
+	            color: white;
+	        }
+	        tr:nth-child(even){
+	            background-color: #4CAF50;
+	            color: white;
+	        }
+	        tr:nth-child(odd){
+	            background-color: #54b275;
+	            color: white;
+	        }
+	        th , td{
+	            border-radius: 50px;
+	        }
+	        td:hover{
+	            background-color: lightgreen;
+	            color: black;
+	            cursor: pointer;
+	        }
+		</style>
+	</head>
 	<body ng-app="">
 		<h3>Developing Views In Angular JS</h3>
 			<hr>
 			<div ng-init="courses=['HTML5','CSS3','Bootstrap','Angular JS','CSS3','HTML5']">
-				<table border="2">
+				<table align="center">
 					<tr>
 						<th>S.No</th>
 						<th>Course</th>

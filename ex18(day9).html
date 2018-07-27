@@ -1,22 +1,42 @@
 <!-- Ex .18. Display product details using AJS Filters. -->
 <html>
-	<head></head>
+	<head>
+		<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+			p{
+				text-align: center;
+				padding: 1px;
+				font-size: 30px;
+				background-color: orange;
+				color: white;
+				margin: 0;
+			}
+		</style>
+	</head>
 	<body ng-app="myApp">
 		<h3>Controllers In Angular JS</h3>
 			<hr>
 			<div ng-controller="demoController">
-				<h3>With Filter</h3>
-				Product Id :- {{pid}}<br>
-				Product Name :- {{pname | uppercase}}<br>
-				Brand Name :- {{brand | lowercase}}<br>
-				Product Price :- {{price | currency:"RS."}}<br>
-				<hr>
-				<h3>Without Filter</h3>
-				Product Id :- {{pid}}<br>
-				Product Name :- {{pname}}<br>
-				Brand Name :- {{brand}}<br>
-				Product Price :- {{price}}<br>
-				
+				<p>With Filter</p>
+				<br>
+					Product Id :- {{pid}}<br>
+					Product Name :- {{pname | uppercase}}<br>
+					Brand Name :- {{brand | lowercase}}<br>
+					Product Price :- {{price | currency:"RS."}}<br>
+					<hr>
+					<p>Without Filter</p>
+					<br>
+					Product Id :- {{pid}}<br>
+					Product Name :- {{pname}}<br>
+					Brand Name :- {{brand}}<br>
+					Product Price :- {{price}}<br>				
 			</div>
 			<script type="text/javascript" src="angular.js"></script>
 			<script type="text/javascript">

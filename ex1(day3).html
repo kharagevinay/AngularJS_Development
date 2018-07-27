@@ -1,14 +1,35 @@
 <!-- Ex .1. Create a web page to display student details using AJS. -->
 <html>
-	<head></head>
+	<head>
+		<style type="text/css">
+		
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+		
+			p{
+				border: 2px solid blue; 
+				padding: 10px;
+				color: blue;
+				background-color: lightyellow;
+			}
+		</style>
+	</head>
 	<body ng-app="">
 		<h3>Developing Web Pages Using Angular JS</h3>
 			<hr>
 			<div ng-init="sid=1025;sname='vinay';cname='Angular JS';duration=30;">
-				Student Id : {{sid}}<br>
-				Student Name : {{sname}}<br>
-				Course Name : {{cname}}<br>
-				Course Duration : {{duration}}
+				<p>
+					Student Id : {{sid}}<br>
+					Student Name : {{sname}}<br>
+					Course Name : {{cname}}<br>
+					Course Duration : {{duration}}
+				</p>
 			</div>
 			<script type="text/javascript" src="angular.js"z></script>
 	</body>

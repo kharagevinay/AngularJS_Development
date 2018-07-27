@@ -1,11 +1,22 @@
 <!-- Ex .2. Display department details using AJS in table formate. -->
 <html>
-	<head></head>
+	<head>
+		<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+		</style>
+	</head>
 	<body ng-app="">
 		<h3>Developing Web Pages Using Angular JS</h3>
 			<hr>
 			<div ng-init="sid=1025;sname='vinay';cname='Angular JS';duration=30;">
-				<table border="2">
+				<table border="2" align="center" style="background-color: lightblue;width: 300px;height: 200px;text-align: center;">
 					<tr>
 						<td>Student Id</td>
 						<td>{{sid}}

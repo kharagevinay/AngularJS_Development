@@ -2,14 +2,52 @@
 <html>
 	<head>
 		<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
 			img
 			{
 				height: 100px;
-				width: 150px;
+				width: 200px;
 				border: 2px solid black;
 				margin: 5px;
-				border-radius: 10px;
+				border-radius: 60px;
 			}
+			table , th , td{
+            border: none;
+            text-align: center;
+            padding: 5px;
+            font-size: 25px;
+            margin: 5px;
+	        }
+	        table{
+	            width: 100%;
+	        }
+	        th{
+	            background-color: #214328;
+	            color: white;
+	        }
+	        tr:nth-child(even){
+	            background-color: #4CAF50;
+	            color: white;
+	        }
+	        tr:nth-child(odd){
+	            background-color: #54b275;
+	            color: white;
+	        }
+	        th , td{
+	            border-radius: 50px;
+	        }
+	        td:hover{
+	            background-color: lightgreen;
+	            color: black;
+	            cursor: pointer;
+	        }
 		</style>
 	</head>
 	<body ng-app="">
