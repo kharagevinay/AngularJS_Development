@@ -1,0 +1,40 @@
+<!-- Ex .19. Example to perform sorting using orderBy. -->
+<html>
+	<head></head>
+	<body ng-app="myApp">
+		<h3>Controllers In Angular JS</h3>
+			<hr>
+			<div ng-controller="demoController">
+				Select Sort Property : -
+					<select ng-model="x">
+						<option value="" disabled="disabled">Select Option</option>		
+						<option>sname</option>
+						<option>course</option>
+					</select>		
+					<br>
+					Do you want to decending order?
+					<input type="checkbox" name="" ng-model="y">
+					<br>
+					<table border="2">
+						<tr>
+							<th>Student Name</th>
+							<th>Course Name</th>
+						</tr>
+						<tr ng-repeat="item in ar | orderBy : x : y">
+							<td>{{item.sname}}</td>
+							<td>{{item.course}}</td>
+						</tr>
+					</table></div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript">
+				var app = angular.module("myApp",[]);
+				app.controller("demoController",function($scope)
+				{
+					$scope.ar = [{sname:"Smith",course:"AJS"},
+								{sname:"Amit",course:"HTML"},
+								{sname:"Zuber",course:"AJS"},
+								{sname:"Ram",course:"CSS"}];
+				});
+			</script>
+	</body>
+</html>

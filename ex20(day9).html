@@ -1,0 +1,31 @@
+<!-- Ex .20. Example to perform sorting using orderBy. (using hyperlink) -->
+<html>
+	<head></head>
+	<body ng-app="myApp">
+		<h3>Controllers In Angular JS</h3>
+			<hr>
+			<div ng-controller="demoController">
+				
+					<table border="2">
+						<tr>
+							<th><a href="#" ng-click="x = 'sname'; y = !y;">Student Name</a></th>
+							<th><a href="#" ng-click="x = 'course'; y = !y;">Course Name</a></th>
+						</tr>
+						<tr ng-repeat="item in ar | orderBy : x : y">
+							<td>{{item.sname}}</td>
+							<td>{{item.course}}</td>
+						</tr>
+					</table></div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript">
+				var app = angular.module("myApp",[]);
+				app.controller("demoController",function($scope)
+				{
+					$scope.ar = [{sname:"Smith",course:"AJS"},
+								{sname:"Amit",course:"HTML"},
+								{sname:"Zuber",course:"AJS"},
+								{sname:"Ram",course:"CSS"}];
+				});
+			</script>
+	</body>
+</html>

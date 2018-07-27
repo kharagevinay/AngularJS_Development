@@ -1,0 +1,33 @@
+<!-- Ex .18. Display product details using AJS Filters. -->
+<html>
+	<head></head>
+	<body ng-app="myApp">
+		<h3>Controllers In Angular JS</h3>
+			<hr>
+			<div ng-controller="demoController">
+				<h3>With Filter</h3>
+				Product Id :- {{pid}}<br>
+				Product Name :- {{pname | uppercase}}<br>
+				Brand Name :- {{brand | lowercase}}<br>
+				Product Price :- {{price | currency:"RS."}}<br>
+				<hr>
+				<h3>Without Filter</h3>
+				Product Id :- {{pid}}<br>
+				Product Name :- {{pname}}<br>
+				Brand Name :- {{brand}}<br>
+				Product Price :- {{price}}<br>
+				
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript">
+				var app = angular.module("myApp",[]);
+				app.controller("demoController",function($scope)
+				{
+					$scope.pid = 1025;
+					$scope.pname = "Sony E1000";
+					$scope.brand = "SonY";
+					$scope.price = 18999;
+				});
+			</script>
+	</body>
+</html>
