@@ -1,0 +1,92 @@
+<html>
+<head>
+	<style type="text/css">
+		h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+		table , th , td{
+            border: none;
+            text-align: center;
+            padding: 10px;
+            font-size: 25px;
+	        }
+	        table{
+	            width: 100%;
+	        }
+	        th{
+	            background-color: green;
+	            color: white;
+	        }
+	        tr:nth-child(even){
+	            background-color: #4CAF50;
+	            color: white;
+	        }
+	        tr:nth-child(odd){
+	            background-color: #54b275;
+	            color: white;
+	        }
+	        th , td{
+	            border-radius: 50px;
+	        }
+	        td:hover{
+	            background-color: lightgreen;
+	            color: black;
+	            cursor: pointer;
+	        }
+	</style>
+</head>
+<body ng-app="myApp">
+	<h3>Filters Demo In Angular JS</h3>
+	<hr/>
+		<div ng-controller="Democontroller">
+			Enter Student Name To Search : 
+			<input type="text" ng-model="x"/><br/><br/>
+			Select Course : 
+			<select ng-model="y">
+				<option>Angular JS</option>
+				<option>HTML5</option>
+				<option>CSS3</option>
+				<option>jQuery</option>
+				<option>BootStrap</option>
+				<option>ASP.NET MVC</option>
+				<option value="">All Students</option>
+			</select>
+			<br/><br/>
+			<table border="2px">
+				<tr>
+					<th>Student Id</th>
+					<th>Student Name</th>
+					<th>Course Name</th>
+				</tr>
+				<tr ng-repeat="item in students | filter:{'sname':x,'course':y}" align="center">
+					<td>{{item.sid}}</td>
+					<td>{{item.sname}}</td>
+					<td>{{item.course}}</td>
+				</tr>
+			</table>
+		</div>
+		<script src="angular.js"></script>
+		<script>
+			var obj=angular.module("myApp",[]);
+			obj.controller("Democontroller",function($scope)
+			{
+				$scope.x="";
+				$scope.y="";
+				$scope.students=
+				[
+					{sid:1030,sname:"Scott",course:"Angular JS"},
+					{sid:1026,sname:"Anil",course:"HTML5"},
+					{sid:1028,sname:"Mark",course:"CSS3"},
+					{sid:1025,sname:"Yen",course:"jQuery"},
+					{sid:1027,sname:"Hejal",course:"BootStrap"},
+					{sid:1029,sname:"daneal",course:"ASP.NET MVC"}
+				];
+			});
+		</script>
+	</body>
+</html>

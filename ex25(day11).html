@@ -1,0 +1,42 @@
+<!-- 25. Create a web page to implement arithmetic operations using AJS Events. -->
+<html>
+	<head>
+		<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<h3>Events In Angular JS</h3>
+			<hr>
+			<div ng-controller="demoController">
+				Product Name :
+					<input type="text" ng-model="pname"><br><br>
+				Unit Price  :
+					<input type="number" ng-model="price"><br><br>
+				Product Quantity :
+					<input type="number" ng-model="quantity"><br><br>
+					<input type="button" ng-click="f1()" value="Get Total Amount"><br><br>
+				<span>Total Amount :- {{result}}</span>
+				
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript">
+				var app=angular.module("myApp",[]);
+				app.controller("demoController",function($scope)
+					{
+						
+						$scope.f1=function()
+						{
+							$scope.result = $scope.price * $scope.quantity;
+						}
+					});
+			</script>
+	</body>
+</html>

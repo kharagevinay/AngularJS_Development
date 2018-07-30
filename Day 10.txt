@@ -1,0 +1,132 @@
+Ex. 21. Perform search operation using AJS Filters.
+
+	<html>
+			<head>
+				<style type="text/css">
+					h3{
+							text-align: center;
+							padding: 20px;
+							font-size: 30px;
+							background-color: lightblue;
+							color: white;
+							margin: 0;
+						}
+					table , th , td{
+						border: none;
+						text-align: center;
+						padding: 10px;
+						font-size: 25px;
+						}
+						table{
+							width: 100%;
+						}
+						th{
+							background-color: green;
+							color: white;
+						}
+						tr:nth-child(even){
+							background-color: #4CAF50;
+							color: white;
+						}
+						tr:nth-child(odd){
+							background-color: #54b275;
+							color: white;
+						}
+						th , td{
+							border-radius: 50px;
+						}
+						td:hover{
+							background-color: lightgreen;
+							color: black;
+							cursor: pointer;
+						}
+				</style>
+			</head>
+		<body ng-app="myApp">
+			<h3>Filters Demo In Angular JS</h3>
+			<hr/>
+			<div ng-controller="Democontroller" align="center">
+				<table>
+					<tr>
+						<td>
+							Search EName
+						</td>
+						<td>
+							Job
+						</td>
+						<td>
+							DeptNo
+						</td>
+					</tr>
+					<tr>
+					<td>
+						<input type="text" ng-model="x" style="width:225;height:40;font-size:20px;border-radius:10px;border:2px solid red;background-color:Lightgrey;cursor:pointer;">
+					</td>
+					<td>
+						<select ng-model="y" style="width:225;height:40;font-size:20px;border-radius:10px;border:2px solid red;background-color:Lightgrey;cursor:pointer;">
+							<option>Team Lead</option>
+							<option>Programmer</option>
+							<option>Programmer</option>
+							<option>Manager</option>
+							<option>Team Lead</option>
+							<option>Manager</option>
+							<option value="">All Emp</option>
+						</select>
+					</td>
+					<td>
+						<select ng-model="z" style="width:200;height:40;font-size:20px;border-radius:10px;border:2px solid red;background-color:Lightgrey;cursor:pointer;">
+							<option value="30">IT</option>
+							<option value="10">Finance</option>
+							<option value="20">HR</option>
+							<option value="40">Account</option>
+							<option value="">All Dept</option>
+						</select>
+					</td>
+					</tr>
+					<tr>
+						<th>
+							<a href="#" ng-click="IsReverse=!IsReverse;SortItem='ename'">Emp Name
+							</a>
+						</th>
+						<th>
+							<a href="#" ng-click="IsReverse=!IsReverse;SortItem='job'">Job
+						</th>
+						<th>
+							Dept No
+						</th>
+					</tr>
+					<tr ng-repeat="item in Emp | filter:{'ename':x,'job':y,'deptno':z} | orderBy:SortItem:IsReverse" >
+						<td>{{item.ename}}</td>
+						<td>{{item.job}}</td>
+						<td>{{item.deptno}}</td>
+					</tr>
+				</table>
+			</div>
+			<script src="angular.js"></script>
+			<script>
+				var obj=angular.module("myApp",[]);
+				obj.controller("Democontroller",function($scope)
+				{
+					$scope.IsReverse=false;
+					$scope.SortItem="ename";
+					$scope.x="";
+					$scope.y="";
+					$scope.z="";
+					$scope.Emp=
+					[
+						{ename:"David",job:"Team Lead",deptno:20},
+						{ename:"James",job:"Programmer",deptno:30},
+						{ename:"Paul",job:"Programmer",deptno:30},
+						{ename:"Scott",job:"Manager",deptno:10},
+						{ename:"Smith",job:"Team Lead",deptno:20},
+						{ename:"Stephan",job:"Manager",deptno:40}
+					];
+				});
+			</script>
+		</body>
+	</html>
+	
+----------------------------------------------------------------------------------------
+
+
+

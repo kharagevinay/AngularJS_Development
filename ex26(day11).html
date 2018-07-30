@@ -1,0 +1,48 @@
+<!-- 24. Create a web page to implement login functionality using AJS Events. -->
+<html>
+	<head>
+		<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<h3>Events In Angular JS</h3>
+			<hr>
+			<div ng-controller="demoController">
+				User Name :
+					<input type="text" ng-model="uname"><br><br>
+				Password :
+					<input type="Password" ng-model="password"><br><br>
+					<input type="button" ng-click="f1()" value="Login"><br><br>
+				<span style="color:{{x}};">{{result}}</span>
+				
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript">
+				var app=angular.module("myApp",[]);
+				app.controller("demoController",function($scope)
+					{
+						$scope.f1=function()
+						{
+							if($scope.uname=="admin" && $scope.password=="admin123")
+							{
+								$scope.result="Welcome to Admin";
+								$scope.x="Green";
+							}
+							else
+							{
+								$scope.result="Invalid Username and Password";
+								$scope.x="yellow";
+							}
+						}
+					});
+			</script>
+	</body>
+</html>

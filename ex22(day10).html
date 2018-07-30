@@ -1,0 +1,110 @@
+<!-- Ex .20. Example to perform sorting using orderBy. (using hyperlink) -->
+<html>
+	<head>
+		<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+			.class{
+				height:50;
+				border:1px solid grey;
+				width:50px;
+				padding:5px;
+			}
+
+			table , th , td{
+            border: none;
+            text-align: center;
+            padding: 10px;
+            font-size: 25px;
+	        }
+	        table{
+	            width: 100%;
+	        }
+	        th{
+	            background-color: gray;
+	            color: white;
+	        }
+	        tr:nth-child(even){
+	            background-color: #4CAF50;
+	            color: white;
+	        }
+	        tr:nth-child(odd){
+	            background-color: #54b275;
+	            color: white;
+	        }
+	        th , td{
+	            border-radius: 50px;
+	        }
+	        td:hover{
+	            background-color: lightgreen;
+	            color: black;
+	            cursor: pointer;
+	        }
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<h3>Searching and Sorting Using Filter</h3>
+			<hr>
+			<div ng-controller="demoController">
+				
+					<table align="center">
+						<tr>
+							<th>
+								Select Product Name : <br><input type="text" name="" ng-model="s1.pname" style="width: 200px;height: 30px;">				
+							</th>
+							<th>
+								Select Brand Name :<br><select ng-model="s1.brand" style="width: 200px;height: 30px;">
+									<option>CANON</option>
+									<option>SONY</option>
+									<option>NIKON</option>
+									<option>RICOH</option>
+									<option value="">ALL Brand</option>
+								</select>
+							</th>
+							<th></th>
+							<th></th>
+						</tr>
+						<tr>
+							<td>
+								<a href="#" ng-click="x = 'pname'; y = !y;">Product Name</a>
+							</td>
+							<td>
+								<a href="#" ng-click="x = 'brand'; y = !y;">Brand</a>
+							</td>
+							<td>
+								<a href="#" ng-click="x = 'price'; y = !y;">Price</a>
+							</td>
+							<td>Image</td>
+						</tr>
+						<tr ng-repeat="item in ar | orderBy : x : y | filter : s1">
+							<td>{{item.pname}}</td>
+							<td>{{item.brand | lowercase}}</td>
+							<td>{{item.price | currency : 'RS.'}}</td>
+							<td><img class="img" src="Images/{{item.img}}" style="width: 200px;height: 100px;"></td>
+						</tr>
+					</table></div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript">
+				var app = angular.module("myApp",[]);
+				app.controller("demoController",function($scope)
+				{
+					$scope.x="";
+					$scope.y="";
+					$scope.s1={pname:"",brand:"",price:""};
+
+					$scope.ar = [ 
+									{pname:"Canon EX400",brand:"CANON",price:9899,img:"Image1.jpg"},
+									{pname:"Sony ER401",brand:"SONY",price:9799,img:"Image2.jpg"},
+									{pname:"Nikon ER401",brand:"NIKON",price:1099,img:"Image3.jpg"},
+									{pname:"Ricoh ER401",brand:"RICOH",price:5899,img:"Image4.jpeg"}
+								];
+				});
+			</script>
+	</body>
+</html>

@@ -1,0 +1,392 @@
+Ex. 22. Perform searching and sorting operation using filter.
+
+		<html>
+			<head>
+				<style type="text/css">
+					h3{
+							text-align: center;
+							padding: 20px;
+							font-size: 30px;
+							background-color: lightblue;
+							color: white;
+							margin: 0;
+						}
+					table , th , td{
+						border: none;
+						text-align: center;
+						padding: 10px;
+						font-size: 25px;
+						}
+						table{
+							width: 100%;
+						}
+						th{
+							background-color: green;
+							color: white;
+						}
+						tr:nth-child(even){
+							background-color: #4CAF50;
+							color: white;
+						}
+						tr:nth-child(odd){
+							background-color: #54b275;
+							color: white;
+						}
+						th , td{
+							border-radius: 50px;
+						}
+						td:hover{
+							background-color: lightgreen;
+							color: black;
+							cursor: pointer;
+						}
+				</style>
+			</head>
+		<body ng-app="myApp">
+			<h3>Filters Demo In Angular JS</h3>
+			<hr/>
+			<div ng-controller="Democontroller" align="center">
+				<table>
+					<tr>
+						<td>
+							Search EName
+						</td>
+						<td>
+							Job
+						</td>
+						<td>
+							DeptNo
+						</td>
+					</tr>
+					<tr>
+					<td>
+						<input type="text" ng-model="x" style="width:225;height:40;font-size:20px;border-radius:10px;border:2px solid red;background-color:Lightgrey;cursor:pointer;">
+					</td>
+					<td>
+						<select ng-model="y" style="width:225;height:40;font-size:20px;border-radius:10px;border:2px solid red;background-color:Lightgrey;cursor:pointer;">
+							<option>Team Lead</option>
+							<option>Programmer</option>
+							<option>Programmer</option>
+							<option>Manager</option>
+							<option>Team Lead</option>
+							<option>Manager</option>
+							<option value="">All Emp</option>
+						</select>
+					</td>
+					<td>
+						<select ng-model="z" style="width:200;height:40;font-size:20px;border-radius:10px;border:2px solid red;background-color:Lightgrey;cursor:pointer;">
+							<option value="30">IT</option>
+							<option value="10">Finance</option>
+							<option value="20">HR</option>
+							<option value="40">Account</option>
+							<option value="">All Dept</option>
+						</select>
+					</td>
+					</tr>
+					<tr>
+						<th>
+							<a href="#" ng-click="IsReverse=!IsReverse;SortItem='ename'">Emp Name
+							</a>
+						</th>
+						<th>
+							<a href="#" ng-click="IsReverse=!IsReverse;SortItem='job'">Job
+						</th>
+						<th>
+							Dept No
+						</th>
+					</tr>
+					<tr ng-repeat="item in Emp | filter:{'ename':x,'job':y,'deptno':z} | orderBy:SortItem:IsReverse" >
+						<td>{{item.ename}}</td>
+						<td>{{item.job}}</td>
+						<td>{{item.deptno}}</td>
+					</tr>
+				</table>
+			</div>
+			<script src="angular.js"></script>
+			<script>
+				var obj=angular.module("myApp",[]);
+				obj.controller("Democontroller",function($scope)
+				{
+					$scope.IsReverse=false;
+					$scope.SortItem="ename";
+					$scope.x="";
+					$scope.y="";
+					$scope.z="";
+					$scope.Emp=
+					[
+						{ename:"David",job:"Team Lead",deptno:20},
+						{ename:"James",job:"Programmer",deptno:30},
+						{ename:"Paul",job:"Programmer",deptno:30},
+						{ename:"Scott",job:"Manager",deptno:10},
+						{ename:"Smith",job:"Team Lead",deptno:20},
+						{ename:"Stephan",job:"Manager",deptno:40}
+					];
+				});
+			</script>
+		</body>
+	</html>
+	
+------------------------------------------------------------------------------------
+
+EX. 23. Create a webpage to limited number of records using AJS Filters.
+
+		<html>
+			<head>
+				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+					table , th , td{
+					border: none;
+					text-align: center;
+					padding: 10px;
+					font-size: 25px;
+					}
+					table{
+						width: 100%;
+					}
+					th{
+						background-color: green;
+						color: white;
+					}
+					tr:nth-child(even){
+						background-color: #4CAF50;
+						color: white;
+					}
+					tr:nth-child(odd){
+						background-color: #54b275;
+						color: white;
+					}
+					th , td{
+						border-radius: 50px;
+					}
+					td:hover{
+						background-color: lightgreen;
+						color: black;
+						cursor: pointer;
+					}
+					select{
+						height: 30px;
+						width:150px;
+					}
+				</style>
+			</head>
+			<body ng-app="myApp">
+				<h3>Filters In Angular JS</h3>
+					<hr>
+					<div ng-controller="demoController"> 
+						Select No. of Items :
+						<select ng-model="n">
+							<option value="" disabled="disabled">Select Option</option>	
+							<option>5</option>
+							<option>10</option>
+							<option>15</option>
+							<option>All Items</option>
+						</select>
+						<br><br>
+						<table border="2">
+							<tr>
+								<th>S.No.</th>
+								<th>Student Name</th>
+								<th>Course Name</th>
+							</tr>
+							<tr ng-repeat="item in stud | limitTo:n">
+								<td>{{$index + 1}}</td>
+								<td>{{item.sname}}</td>
+								<td>{{item.course}}</td>
+							</tr>
+						</table>
+					</div>
+					<script type="text/javascript" src="angular.js"></script>
+					<script type="text/javascript">
+						var app=angular.module("myApp",[]);
+						app.controller("demoController",function($scope)
+							{
+								$scope.n="";
+								$scope.stud=[
+								{sname:"scott",course:"Angular JS"},
+								{sname:"amit",course:"HTML"},
+								{sname:"sham",course:"CSS"},
+								{sname:"ram",course:"jQuery"},
+								{sname:"smith",course:"Javascript"},
+								{sname:"scott",course:"Angular JS"},
+								{sname:"amit",course:"HTML"},
+								{sname:"sham",course:"CSS"},
+								{sname:"ram",course:"jQuery"},
+								{sname:"smith",course:"Javascript"},
+								{sname:"scott",course:"Angular JS"},
+								{sname:"amit",course:"HTML"},
+								{sname:"sham",course:"CSS"},
+								{sname:"ram",course:"jQuery"},
+								{sname:"smith",course:"Javascript"},
+								{sname:"scott",course:"Angular JS"},
+								{sname:"amit",course:"HTML"},
+								{sname:"sham",course:"CSS"},
+								{sname:"ram",course:"jQuery"},
+								{sname:"smith",course:"Javascript"}
+								];
+							});
+					</script>
+			</body>
+		</html>
+		
+---------------------------------------------------------------------------------------
+
+19. Event Handling in AJS.
+
+Ans.:-	
+
+		At the time of creating real-time applications in AJS, we need to handle events like button click,mouse hover, change events etc.
+		
+		AJS supports all client side events like Javascript.
+		
+		AJS supports all events are prefix with "on" word.
+		
+		Ex. 	onclick
+			
+				onchange
+			
+				onfocus......etc.
+			
+		AJS provides event directives to the handle the events.
+		
+		All event directives are prefix with "ng-" word.
+		
+		Ex. 	ng-click
+		
+				ng-change
+				
+				ng-focus...etc.
+				
+		Usage :-
+		
+				<input type = "button" ng-click = "login()">
+				
+		We can provide either statements or functions to event directives.
+		
+		Ex.		ng-click = "x = 10; y = 20";
+		
+				ng-click = "login()";
+				
+		Functions that we are using in event directives should be attach with $scope object.
+		
+		Ex. 	$scope.login = function()
+				{
+				
+					//logic
+				
+				}
+				
+-----------------------------------------------------------------------------------
+
+Note :-
+
+		Scope data should be accessiable using $scope object inside the function.
+		
+		uid			= 		wrong
+		
+		$scope.uid	=		correct
+		
+------------------------------------------------------------------------------------
+
+Ex. 24. Create a web page to implement login functionality using AJS Events.
+
+		<html>
+			<head>
+				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+				</style>
+			</head>
+			<body ng-app="myApp">
+				<h3>Events In Angular JS</h3>
+					<hr>
+					<div ng-controller="demoController">
+						User Name :
+							<input type="text" ng-model="uname"><br><br>
+						Password :
+							<input type="Password" ng-model="password"><br><br>
+							<input type="button" ng-click="f1()" value="Login"><br><br>
+						<span>{{result}}</span>
+						
+					</div>
+					<script type="text/javascript" src="angular.js"></script>
+					<script type="text/javascript">
+						var app=angular.module("myApp",[]);
+						app.controller("demoController",function($scope)
+							{
+								$scope.f1=function()
+								{
+									if($scope.uname=="admin" && $scope.password=="admin123")
+									{
+										$scope.result="Welcome to Admin";
+									}
+									else
+									{
+										$scope.result="Invalid Username and Password";
+									}
+								}
+							});
+					</script>
+			</body>
+		</html>
+
+----------------------------------------------------------------------------------------
+
+Ex. 25. Create a web page to implement arithmetic operations using AJS Events.
+
+		<html>
+			<head>
+				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+				</style>
+			</head>
+			<body ng-app="myApp">
+				<h3>Events In Angular JS</h3>
+					<hr>
+					<div ng-controller="demoController">
+						Product Name :
+							<input type="text" ng-model="pname"><br><br>
+						Unit Price  :
+							<input type="text" ng-model="price"><br><br>
+						Product Quantity :
+							<input type="text" ng-model="quantity"><br><br>
+							<input type="button" ng-click="f1()" value="Get Total Amount"><br><br>
+						<span>Total Amount :- {{result}}</span>
+						
+					</div>
+					<script type="text/javascript" src="angular.js"></script>
+					<script type="text/javascript">
+						var app=angular.module("myApp",[]);
+						app.controller("demoController",function($scope)
+							{
+								
+								$scope.f1=function()
+								{
+									$scope.result = $scope.price * $scope.quantity;
+								}
+							});
+					</script>
+			</body>
+		</html>
+		
+--------------------------------------------------------------------------------------
+

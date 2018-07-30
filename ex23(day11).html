@@ -1,0 +1,105 @@
+<!-- 23. Create a webpage to limited number of records using AJS Filters. -->
+<html>
+	<head>
+		<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+			table , th , td{
+            border: none;
+            text-align: center;
+            padding: 10px;
+            font-size: 25px;
+	        }
+	        table{
+	            width: 100%;
+	        }
+	        th{
+	            background-color: green;
+	            color: white;
+	        }
+	        tr:nth-child(even){
+	            background-color: #4CAF50;
+	            color: white;
+	        }
+	        tr:nth-child(odd){
+	            background-color: #54b275;
+	            color: white;
+	        }
+	        th , td{
+	            border-radius: 50px;
+	        }
+	        td:hover{
+	            background-color: lightgreen;
+	            color: black;
+	            cursor: pointer;
+	        }
+	        select{
+	        	height: 30px;
+	        	width:150px;
+	        }
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<h3>Filters In Angular JS</h3>
+			<hr>
+			<div ng-controller="demoController"> 
+				Select No. of Items :
+				<select ng-model="n">
+					<option value="" disabled="disabled">Select Option</option>	
+					<option>5</option>
+					<option>10</option>
+					<option>15</option>
+					<option>All Items</option>
+				</select>
+				<br><br>
+				<table border="2">
+					<tr>
+						<th>S.No.</th>
+						<th>Student Name</th>
+						<th>Course Name</th>
+					</tr>
+					<tr ng-repeat="item in stud | limitTo:n">
+						<td>{{$index + 1}}</td>
+						<td>{{item.sname}}</td>
+						<td>{{item.course}}</td>
+					</tr>
+				</table>
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript">
+				var app=angular.module("myApp",[]);
+				app.controller("demoController",function($scope)
+					{
+						$scope.n="";
+						$scope.stud=[
+						{sname:"scott",course:"Angular JS"},
+						{sname:"amit",course:"HTML"},
+						{sname:"sham",course:"CSS"},
+						{sname:"ram",course:"jQuery"},
+						{sname:"smith",course:"Javascript"},
+						{sname:"scott",course:"Angular JS"},
+						{sname:"amit",course:"HTML"},
+						{sname:"sham",course:"CSS"},
+						{sname:"ram",course:"jQuery"},
+						{sname:"smith",course:"Javascript"},
+						{sname:"scott",course:"Angular JS"},
+						{sname:"amit",course:"HTML"},
+						{sname:"sham",course:"CSS"},
+						{sname:"ram",course:"jQuery"},
+						{sname:"smith",course:"Javascript"},
+						{sname:"scott",course:"Angular JS"},
+						{sname:"amit",course:"HTML"},
+						{sname:"sham",course:"CSS"},
+						{sname:"ram",course:"jQuery"},
+						{sname:"smith",course:"Javascript"}
+						];
+					});
+			</script>
+	</body>
+</html>
