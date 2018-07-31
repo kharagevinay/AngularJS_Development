@@ -1,0 +1,141 @@
+<!-- Ex .28. Create a web page to perform add / remove / select operation. -->
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    	<link rel="stylesheet" href="bootstrap/css/font-awesome.min.css">
+		<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+			table , th , td{
+            border: none;
+            text-align: center;
+            padding: 10px;
+            font-size: 25px;
+	        }
+	        table{
+	            width: 100%;
+	        }
+	        th{
+	            background-color: green;
+	            color: white;
+	        }
+	        tr:nth-child(even){
+	            background-color: #4CAF50;
+	            color: white;
+	        }
+	        tr:nth-child(odd){
+	            background-color: #54b275;
+	            color: white;
+	        }
+	        th , td{
+	            border-radius: 50px;
+	        }
+	        td:hover{
+	            background-color: lightgreen;
+	            color: black;
+	            cursor: pointer;
+	        }
+	        select{
+	        	height: 30px;
+	        	width:150px;
+	        }	        
+        	.bs-btn{
+            color: white;
+            border: none;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            padding: 10px 55px;
+            cursor: pointer;
+            box-shadow: 0 0 5px gray;
+            margin: 5px;
+            border-radius: 15px;
+	        }
+	        .d-primary{
+	            background: linear-gradient(to right,green,lightgreen);
+	        }
+	        .d-primary:hover{
+	            color: green;
+	        }	        
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<h3>Dynamic Operations In Angular JS</h3>
+			<hr>
+			<div ng-controller="democontroller">
+				Deptno :
+				<input type="text" name="" ng-model="s1">
+				<br><br>
+				Dept Name :
+				<input type="text" name="" ng-model="s2">
+				<br><br>
+				Location :
+				<input type="text" name="" ng-model="s3">
+				<br><br>
+				<button class="bs-btn d-primary" ng-click="f1()">Add</button>
+				<table>
+					<tr>
+						<th>Dept No</th>
+						<th>Dept Name</th>
+						<th>Location</th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr ng-repeat="item in dept">
+						<td>{{item.deptno}}</td>
+						<td>{{item.deptname}}</td>
+						<td>{{item.location}}</td>
+						<td>
+							<a href="#" ng-click="f2($index)">Remove</a>
+						</td>
+						<td>
+							<a href="#" ng-click="f3($index)">Select</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript">
+				var app=angular.module("myApp",[]);
+				app.controller("democontroller",function($scope)
+					{
+						$scope.s1="0";
+						$scope.s2="";
+						$scope.s3="";
+						$scope.dept=[
+						{deptno:10,deptname:"Accounts",location:"pune"},
+						{deptno:20,deptname:"Tester",location:"Hydrabad"},
+						{deptno:30,deptname:"Finance",location:"Kolhapur"}
+						];
+
+						$scope.f1=function()
+						{
+							//create new object
+							var obj={};
+							obj.deptno=$scope.s1;
+							obj.deptname=$scope.s2;
+							obj.location=$scope.s3;
+							$scope.dept.push(obj);
+						}
+
+						$scope.f2=function(x)
+						{
+							$scope.dept.splice(x,1);
+						}
+						$scope.f3=function(x)
+						{
+							var obj=$scope.dept[x];
+							$scope.s1=obj.deptno;
+							$scope.s2=obj.deptname;
+							$scope.s3=obj.location;
+						}
+					});
+			</script>
+	</body>
+</html>

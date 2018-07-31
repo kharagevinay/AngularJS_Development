@@ -1,0 +1,128 @@
+<html>
+	<head>
+		<style type="text/css">
+			body{
+		            font-family: Arial, sans-serif;
+		            margin: 0;
+		        }
+		    nav{
+		            background: #e8e5e5;
+		            overflow: hidden; /* to fix the bg color */
+		            /* to fix the nav bar */
+		            position: fixed;
+		            top:0;
+		            width: 100%;
+		        }
+		    nav ul{
+		            list-style-type: none;
+		            padding: 0;
+		            margin: 0;
+		        }
+		    nav ul li{
+		            float: left; /* hides the bg color */
+		        }
+		    nav ul li a{
+		            text-decoration: none;
+		            color: black;
+		            padding: 12px 25px;
+		            display: inline-block;
+		            font-size: 18px;
+		        }
+		        img{
+		        	width: 100px;
+		        	height: 40px;
+		        	border-radius: 20px;
+		        }
+		    input{
+		        	width: 600px;
+		        	height: 30px;
+		        	margin-top: 5px;
+		        	margin-left: 10px;
+		        	font-size: 18px;
+		    	}
+				.image-div{
+		            border: 2px solid gray;
+		            width: 300px;
+		            float: left;
+		            margin: 7px;
+		            padding: 7px;
+		            border-radius: 15px;
+		            text-align: center;
+	        	}
+		        .image-div:hover{
+		            box-shadow: 0 0 15px black;
+		            cursor: pointer;
+		        }	
+		        .image-div img{
+		            width: 100%;
+		            height: 200px;
+		            border-radius: 15px;
+		        }
+		        .clear{
+            background: linear-gradient(orangered,white,forestgreen);
+            color: black;
+            text-align: center;
+            padding: 10px;
+            clear: both; /* to clear the float effect */
+            border-radius: 10px;
+        }
+		</style>
+		<title>Demo</title>
+	</head>
+	<body ng-app="myApp">		
+		<div ng-controller="demoController">
+			<nav>
+		        <ul>
+		            <li>
+		                <img src="Images/logo.png">
+		            </li>
+		            <li>
+		            	<input type="text" name="" placeholder="Search for Course Name" ng-model="s1.cname">
+		            </li>		            
+		        </ul>
+    		</nav>
+    		<div><br><br><br><br>
+    			<b>Sort By : -</b>
+    			<a href="#" ng-click="x = 'cname'; y = !y;">Course Name</a> | 
+    			<a href="#" ng-click="x = 'duration'; y = !y;">Course Duration</a> |
+    			<b>Course Price :-</b> 
+    			<a href="#" ng-click="x = 'price';">Low To High</a> |
+    			<a href="#" ng-click="y = 'price';">High To Low</a><br><br>
+    			</div>
+	    			 <div>
+	    			 	<div ng-repeat="item in ar | orderBy : x : y | filter : s1">
+        					<div class="image-div">				
+					 			<h1 class="clear">{{item.cname}}</h1>
+					 		<br/><br>
+					 				<img  src="Images/{{item.img}}"/><br/><br>
+									<span style="color: orangered">{{item.date}}</span><br><br>
+									<span style="color: lightblue">{{item.duration}}</span><br><br>
+									<span style="color: green">{{item.price | currency : 'RS.'}}</span>
+							</div>
+						</div>
+					</div>	
+		
+	</div>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+				var app = angular.module("myApp",[]);
+				app.controller("demoController",function($scope)
+				{
+					$scope.x="";
+					$scope.y="";
+					$scope.s1={cname:"",duration:"",price:""};
+
+					$scope.ar = [ 
+									{cname:"HTML",date:"31th Jul@4.00PM",duration:"20 Days",price:200,img:"html.png"},
+									{cname:"CSS",date:"1st Aug@6.00PM",duration:"15 Days",price:200,img:"css.png"},
+									{cname:"Javascript",date:"10th Aug@7.00AM",duration:"30 Days",price:300,img:"javascript.jpg"},
+									{cname:"Bootsrtap",date:"4th Aug@9.00AM",duration:"25 Days",price:200,img:"bootstrap.jpg"},
+									{cname:"Angular JS",date:"5th Aug@2.00PM",duration:"30 Days",price:1500,img:"angularjs.jpg"},
+									{cname:"Dot Net",date:"31th Jul@6.00PM",duration:"60 Days",price:2500,img:"dotnet.jpg"},
+									{cname:"PHP",date:"2nd Aug@9.00AM",duration:"45 Days",price:2000,img:"php.png"},
+									{cname:"JAVA",date:"6th Aug@4.00PM",duration:"90 Days",price:4500,img:"java.png"}
+								];
+				});
+			</script>
+	</body>
+</html>
