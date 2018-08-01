@@ -1,0 +1,70 @@
+<!-- Ex .. . -->
+<html>
+	<head>
+		<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+			.c1{
+				color:red;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<h3>Validations In Angular JS</h3>
+			<hr>
+			<div ng-controller="democontroller">
+				<form name="f1" novalidate=""> 
+						First Name :
+						<input type="text" name="t1" ng-model="fname" ng-required="true">
+
+						<span class="c1" ng-show="f1.t1.$error.required && f1.t1.$dirty">Please Enter First Name</span><br><br>
+
+						Last Name :
+						<input type="text" name="t2" ng-model="lname" ng-required="true">
+
+						<span class="c1" ng-show="f1.t2.$error.required && f1.t2.$dirty">Please Enter Last Name</span><br><br>
+
+						City :
+						<input type="text" name="t3" ng-model="city" ng-minlength="3" ng-maxlength="10">
+
+						<span class="c1" ng-show="f1.t3.$error.minlength && f1.t3.$dirty">Please Enter 3 characters City</span>
+
+						<span class="c1" ng-show="f1.t3.$error.maxlength && f1.t3.$dirty">Please Enter 10 characters City</span><br><br>
+
+						Email :
+						<input type="email" name="t4" ng-model="email">
+
+						<span class="c1" ng-show="f1.t4.$error.email && f1.t4.$dirty">Please Enter Valid Email Address</span><br><br>
+
+						Pincode :
+						<input type="number" name="t5" ng-model="pincode" ng-pattern="/^\d{6}$/">
+
+						<span class="c1" ng-show="f1.t5.$error.pattern && f1.t5.$dirty">Please Enter 6 Digits Pincode</span><br><br>
+
+						<input type="button" name="" ng-click="fn_submit()" ng-disabled="f1.$invalid" value="Register">
+				</form>
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript">
+				var app=angular.module("myApp",[]);
+				app.controller("democontroller",function($scope)
+					{
+						$scope.fname="";
+						$scope.lname="";
+						$scope.city="";
+						$scope.email="";
+						$scope.pincode="";
+						$scope.fn_submit=function()
+						{
+							alert("Customer details accepted...!");
+						}
+					});
+			</script>
+	</body>
+</html>

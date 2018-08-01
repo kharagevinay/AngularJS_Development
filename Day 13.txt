@@ -1,0 +1,148 @@
+20. AJS forms to perform validations.
+
+Ans. :-
+
+		According to HTML, form is a collection of input fields.
+		
+		Form is used to read the data from the user.
+		
+		Browser submits the request to server based on <form> tag.
+		
+		At the time of submitting the data to server,we need to perform validations.
+		
+--------------------------------------------------------------------------------------
+
+21. Rules to implement validation.
+
+Ans. :-
+
+		1. <form> tag should be placed within the tag that is bind with ng-controller.
+		
+		2. <form> tag should have "name" and "novalidate" attributes.
+		
+		3. Input controls should have "name" attribute and bind with $scope data using ng-model.
+		
+		4. Apply validation directives to cntrols.
+		
+			<input type = "text" name = "t1" ng-model = "fname" required = "true">
+			
+		5. Prepare error message in <span> tag with ng-show directive.
+		
+			Ex. <span ng-show = ""> Error Message </span>
+			
+		6. Identify the failures of validations by using AJS object ( Ex. $error ) 
+		   in order to display error message.
+		
+			Ex. ng-show = "f1.t1.$error.required"
+			
+			The above statement returns bool value.
+			
+			Error occurs		-		true
+			No Error			-		false
+			
+		7. Disable / Enable the submit button based on ng-disabled = "f1.$invalid"
+		
+---------------------------------------------------------------------------------------
+
+22. Validation Directives.
+
+Ans. :-
+
+		1.	ng-required
+		
+		2. 	ng-maxlength
+		
+		3.	ng-minlength
+		
+		4.	ng-pattern
+		
+		5.	<input type = "email">
+		
+------------------------------------------------------------------------------------------
+
+23.	AJS objects involved in validation.
+
+Ans. :-
+
+		1.	$error
+		
+		2.	$invalid
+		
+		3.	$dirty
+		
+-----------------------------------------------------------------------------------------
+
+Ex. 29. Create a web page to implement validations using AJS.
+
+		<html>
+			<head>
+				<style type="text/css">
+					h3{
+						text-align: center;
+						padding: 20px;
+						font-size: 30px;
+						background-color: lightblue;
+						color: white;
+						margin: 0;
+					}
+					.c1{
+						color:red;
+					}
+				</style>
+			</head>
+			<body ng-app="myApp">
+				<h3>Validations In Angular JS</h3>
+					<hr>
+					<div ng-controller="democontroller">
+						<form name="f1" novalidate=""> 
+								First Name :
+								<input type="text" name="t1" ng-model="fname" ng-required="true">
+
+								<span class="c1" ng-show="f1.t1.$error.required && f1.t1.$dirty">Please Enter First Name</span><br><br>
+
+								Last Name :
+								<input type="text" name="t2" ng-model="lname" ng-required="true">
+
+								<span class="c1" ng-show="f1.t2.$error.required && f1.t2.$dirty">Please Enter Last Name</span><br><br>
+
+								City :
+								<input type="text" name="t3" ng-model="city" ng-minlength="3" ng-maxlength="10">
+
+								<span class="c1" ng-show="f1.t3.$error.minlength && f1.t3.$dirty">Please Enter 3 characters City</span>
+
+								<span class="c1" ng-show="f1.t3.$error.maxlength && f1.t3.$dirty">Please Enter 10 characters City</span><br><br>
+
+								Email :
+								<input type="email" name="t4" ng-model="email">
+
+								<span class="c1" ng-show="f1.t4.$error.email && f1.t4.$dirty">Please Enter Valid Email Address</span><br><br>
+
+								Pincode :
+								<input type="number" name="t5" ng-model="pincode" ng-pattern="/^\d{6}$/">
+
+								<span class="c1" ng-show="f1.t5.$error.pattern && f1.t5.$dirty">Please Enter 6 Digits Pincode</span><br><br>
+
+								<input type="button" name="" ng-click="fn_submit()" ng-disabled="f1.$invalid" value="Register">
+						</form>
+					</div>
+					<script type="text/javascript" src="angular.js"></script>
+					<script type="text/javascript">
+						var app=angular.module("myApp",[]);
+						app.controller("democontroller",function($scope)
+							{
+								$scope.fname="";
+								$scope.lname="";
+								$scope.city="";
+								$scope.email="";
+								$scope.pincode="";
+								$scope.fn_submit=function()
+								{
+									alert("Customer details accepted...!");
+								}
+							});
+					</script>
+			</body>
+		</html>
+		
+----------------------------------------------------------------------------------------
+
