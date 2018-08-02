@@ -1,0 +1,143 @@
+24. AJAX Programming In AJS. What is AJAX?
+
+Ans. :-
+	
+		AJAX - Asynchronous Javascript And XML.
+		
+		AJAX is a client side programming technique used to communicate with server Asynchronously.
+		
+----------------------------------------------------------------------------------------
+
+Note :-
+
+	This technique is first identified & used by Google team in the year of 2005.
+	
+------------------------------------------------------------------------------------------
+
+25. Advantages Of AJAX.
+
+Ans. :-
+
+		1.	Partial page updates.
+		
+		2.	Reduce the burden on the server.
+		
+		3.	Reduce the network traffic.
+		
+		4.	Quick responses.
+		
+--------------------------------------------------------------------------------------
+
+26. How to implement AJAX Programming?
+
+Ans. :-
+
+		AJAX is a client side programming.
+		
+		It is implemented with the help of Javascript.
+		
+		If we implement with only Javascript, it will be difficult and time consuming programming.
+		
+		In order to make AJAX programming is easy, there are several Javascript libraries avaliable.
+		
+		Ex. Angular JS
+		
+			jQuery
+			
+			Dojo
+			
+			React JS
+			
+			etc...
+			
+----------------------------------------------------------------------------------------
+
+27. Role of JSON In AJAX.
+
+Ans. :-
+
+		JSON stands for "Javascript Object Notation".
+		
+		JSON concept is used to transfer the data from client to server or server to client in AJAX calls.
+		
+		It is a object representation technique in Javascript.
+		
+		At the time of introducing AJAX, every one uses XML to transfer the data from server.
+		
+		If we use XML, we need to Serialize/De-Serialize the XML data into objects.
+		
+		But JSON can access directly in client code (AJAX Programming).
+		
+		JSON objects are light weight objects.
+		
+		Example of JSON Object :-
+		
+								{
+								
+									"pid"	:	1025,
+									"pname"	:	"HP Camera",
+									"price"	:	9999,
+									"brand"	:	"HP"
+									
+								};
+								
+-----------------------------------------------------------------------------------------
+
+Note :-
+
+		Property names should be in double quotations.
+		
+--------------------------------------------------------------------------------------
+
+28. Advantages of JSON over XML.
+
+Ans. :-
+
+		1.	Easy to represent, access and read.
+		
+		2.	Light weight objects.
+		
+		3. 	No need to perform Serialize/De-Serialize.
+		
+		4.	All Javascript libraries supports.
+		
+		5.	Easy to map programming objectsto JS objects due to property representation.
+		
+-----------------------------------------------------------------------------------------
+
+29. Implement of AJAX in AJS.
+
+Ans. :-
+
+		AJS Framework provides special service called "$http" to implement AJAX Programming.
+		
+		By using "$http" service we can communicate with server Asynchronously.
+		
+		In AJAX programming, JS code is responsible to send the request, receive the response and display the web page.
+		
+		Usage $http Service :-
+		
+			$http 
+			({
+			
+				url : "ServerPageUrl",
+				method : "GET/POST",
+				data : "",
+				headers :
+				{
+				
+					"Contect-Type" : "application/json"
+				
+				}
+			
+			})
+			.then(function(response)
+			{
+			
+				//Attach response data to $scope.
+				
+				//Ex. $scope.depts = response.data;
+			
+			});
+			
+--------------------------------------------------------------------------------------
