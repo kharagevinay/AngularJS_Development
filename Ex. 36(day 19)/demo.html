@@ -1,0 +1,55 @@
+<!-- 36. Custom Filter that filters the products based on the given range of price. -->
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+		</style>
+</head>
+<body ng-app="myApp">
+		<h3>Custom Filter In Angular JS</h3>
+			<hr>
+			<div ng-controller="democontroller">
+				Select Min Value :- 
+					<select ng-model="x">
+						<option>1000</option>
+						<option>2000</option>
+						<option>3000</option>
+						<option>4000</option>
+						<option>5000</option>
+					</select> 
+					<br><br>
+
+					Select Max Value :- 
+					<select ng-model="y">
+						<option>6000</option>
+						<option>7000</option>
+						<option>8000</option>
+						<option>9000</option>
+						<option>10000</option>
+					</select>
+					<br><br>
+					<table>
+						<tr>
+							<th>Product Name</th>
+							<th>Brand</th>
+							<th>Price</th>
+						</tr>
+						<tr ng-repeat="item in products | rangefilter : x : y">
+							<td>{{item.pname}}</td>
+							<td>{{item.brand}}</td>
+							<td>{{item.price}}</td>
+						</tr>
+					</table>
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>

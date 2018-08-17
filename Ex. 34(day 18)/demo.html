@@ -1,0 +1,77 @@
+<!-- 34. Create AJS application to develop Dynamic operation by using Factory method. -->
+<html>
+	<head>
+		<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+			table , th , td{
+            border: none;
+            text-align: center;
+            padding: 10px;
+            font-size: 25px;
+	        }
+	        table{
+	            width: 100%;
+	        }
+	        th{
+	            background-color: green;
+	            color: white;
+	        }
+	        tr:nth-child(even){
+	            background-color: #4CAF50;
+	            color: white;
+	        }
+	        tr:nth-child(odd){
+	            background-color: #54b275;
+	            color: white;
+	        }
+	        th , td{
+	            border-radius: 50px;
+	        }
+	        td:hover{
+	            background-color: lightgreen;
+	            color: black;
+	            cursor: pointer;
+	        }
+		</style>
+	</head>
+		<body  ng-app="myApp">
+			<h3> Working with Factory In Angular JS </h3>
+			<hr/>
+			<div ng-controller="DemoController">   
+				Deptno : 
+					<input  ng-model="s1" />
+					<br></br>
+				Dname : 
+					<input  ng-model="s2" />
+					<br></br>
+				Location : 
+					<input  ng-model="s3" />
+					<input type="button" ng-click="f1()" value="Add Dept" />
+					<br></br>
+						<table border="2">
+							<tr>
+								<th>Deptno</th>
+								<th>Dname</th>
+								<th>Location</th>		
+							</tr>		
+							<tr ng-repeat="item in depts">		
+								<td>{{item.deptno}}</td>
+								<td>{{item.dname}}</td>
+								<td>{{item.loc}}</td>	 
+								<td>
+									<input type="button" ng-click="f2( $index  )" value="Remove" />
+								</td>
+							</tr>		
+						</table> 
+			</div>			 
+			<script  src="angular.js"> </script>
+			<script  src="app.js"></script>
+		</body>
+</html>
