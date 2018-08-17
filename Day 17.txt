@@ -1,0 +1,178 @@
+34. What is Service in AJS?
+
+Ans. :-
+
+		Service is re-usable component in multiple controller.
+		
+		A service may contains variables and functions.
+		
+		Members of service are created as instance members using "this" keyword.
+		
+		this.variable = "";
+		this.fn_name = function()
+		{
+			------
+			------
+		};
+		
+----------------------------------------------------------------------------------------
+
+35. What are the examples of pre-defined service in AJS?
+
+Ans. :-
+
+		AJS provides built in services to perform required operations in multiple controllers.
+		
+		Examples :-
+		
+			i.  $http :-
+					
+					It is used to communicate with server asynchronously(AJAX).
+					
+			ii. $routeProvider :-
+			
+					It is used to prepare routes in single page application(SPA) implementation.
+
+			iii.$log :-
+					it is used to write message in browser console for debugging purpose.
+					
+--------------------------------------------------------------------------------------
+
+36. What are the advantages of Services?
+
+Ans. :-
+
+		i.	Simplified controller logic.
+		
+		ii.	Re-usable.
+		
+		iii.Easy to testing.
+		
+		iv.	Easy to modify.
+		
+---------------------------------------------------------------------------------------
+
+37. How to create Services in AJS?
+
+Ans. :-
+
+		Module object provides two functions for create service :-
+		
+			i.	service()
+			
+			ii.	factory()
+			
+		i.	Create service with service() method :-
+		
+			Syntax :-
+			
+					app.service("ServiceName",function()
+					{
+					
+						//declare variables or functions with "this" keyword.
+					
+					});
+					
+					
+				Accessing service in controller :-
+				
+				Syntax :-
+				
+					app.controller("ControllerName",function($scope,ServiceName)
+					{
+					
+						//Access the members of service with ServiceName.
+					
+					});
+					
+----------------------------------------------------------------------------------------
+
+Ex. 31. Create AJS application to develop LoginService by using service concept.
+
+			i. create folder name "Module".
+			
+			ii. Put "angular.js" file
+
+			iii.create "app.js" and "demo.html"
+			
+			
+			app.js
+			~~~~~~~
+			
+				var app = angular.module("myApp",[]);
+
+				app.service("LoginService",function()
+					{
+						this.isValidUser = function(s1,s2)
+						{
+							var str="";
+							if(s1 == "admin" && s2 == "admin123")
+							{
+								str = "Welcome to Admin";
+							}
+							else
+							{
+								str = "Invalid Username or Password...!";
+							}
+							return str;
+						};
+					});
+
+					app.controller("democontroller",function($scope,LoginService)
+					{
+						$scope.uname="";
+						$scope.pwd="";
+						$scope.result="";
+
+						$scope.f1 = function()
+						{
+								$scope.result = LoginService.isValidUser($scope.uname,$scope.pwd)	
+						};
+					});
+					
+				
+			demo.html	
+			~~~~~~~~~~
+			
+			<!DOCTYPE html>
+			<html>
+				<head>
+					<title></title>
+					<style type="text/css">
+							h3{
+								text-align: center;
+								padding: 20px;
+								font-size: 30px;
+								background-color: lightblue;
+								color: white;
+								margin: 0;
+							}
+						</style>
+				</head>
+				<body ng-app="myApp">
+						<h3>Working with Services In Angular JS</h3>
+							<hr>
+							<div ng-controller="democontroller">
+								Username : 
+								<input type="text" name="" ng-model="uname">
+								<br>
+								Password :
+								<input type="Password" name="" ng-model="pwd">
+								<br>
+								<input type="button" name="" ng-click="f1()" value="Login">
+								<h1>{{result}}</h1>
+							</div>
+						<script type="text/javascript" src="angular.js"></script>
+						<script type="text/javascript" src="app.js"></script>
+				</body>
+			</html>
+			
+-----------------------------------------------------------------------------------------
+
+
+						
+						
+
+
+
+								

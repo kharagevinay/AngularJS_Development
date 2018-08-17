@@ -1,0 +1,102 @@
+Ex. 30. Create AJAX program to implement AJAX in order to getting data from Server.
+Ans. :- 
+
+		(This program only run in Server like wamp,IIS etc and database also)
+		Required files :-
+					angular.js
+					Demo1.html
+					getDept.php
+					
+		Demo1.html
+		
+			<html>
+				<head>
+					<style type="text/css">
+						h3{
+							text-align: center;
+							padding: 20px;
+							font-size: 30px;
+							background-color: lightblue;
+							color: white;
+							margin: 0;
+						}
+						table , th , td{
+						border: none;
+						text-align: center;
+						padding: 10px;
+						font-size: 25px;
+						}
+						table{
+							width: 100%;
+						}
+						th{
+							background-color: green;
+							color: white;
+						}
+						tr:nth-child(even){
+							background-color: #4CAF50;
+							color: white;
+						}
+						tr:nth-child(odd){
+							background-color: #54b275;
+							color: white;
+						}
+						th , td{
+							border-radius: 50px;
+						}
+						td:hover{
+							background-color: lightgreen;
+							color: black;
+							cursor: pointer;
+						}
+					</style>
+				</head>
+				<body ng-app="myApp">
+					<h3>AJAX programming In Angular JS</h3>
+						<hr>
+						<div ng-controller="democontroller">
+							<input type="button" name="" ng-click="fn_getDepts()"
+								   value="Get Depts">
+								<table>
+									<tr>
+										<th>Dept No</th>
+										<th>Dept Name</th>
+										<th>Location</th>
+									</tr>
+									<tr ng-repeat="item in depts">
+										<td>{{item.deptno}}</td>
+										<td>{{item.deptname}}</td>
+										<td>{{item.location}}</td>
+									</tr>
+								</table>
+						</div>
+						<script type="text/javascript" src="angular.js"></script>
+						<script type="text/javascript">
+							var app=angular.module("myApp",[]);
+							app.controller("democontroller",function($scope,$http)
+								{
+									$scope.depts=[];
+									
+									$scope.fn_getDepts=function()
+									{
+										$http({
+											url : "getDept.php",
+											method : "GET",
+											data : "",
+											headers :
+											{
+												"content-Type" : "application/json"
+											}
+											.then(function(response))
+											{
+												$scope.depts = response.data;
+											}
+										});
+									};
+								});
+						</script>
+				</body>
+			</html>
+					
+------------------------------------------------------------------------------------------
+								

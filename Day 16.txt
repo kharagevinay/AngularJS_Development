@@ -1,0 +1,82 @@
+30. What is a Module in AJS?
+
+Ans. :-
+
+		Module is consider as a container for the different programming items of AJS application like controllers, filtersm, services, directives etc.
+		
+		Module specify how an application should be bootstrapped (initializing your application items.)
+		
+		Modules can implement seperation of code feature of MVC.
+		
+		Module is an important part of the AJS dependency injection system.
+		
+----------------------------------------------------------------------------------------
+
+Note :-
+
+		"ng" is a pre-defined global module that will be prepared by AJS fremework.
+		
+		Filters directives that we are using defined in "ng" module.
+		
+-----------------------------------------------------------------------------------------
+
+31.	What can we define in AJS Module?   [OR] 
+	What are the content of the AJS Module?
+	
+Ans. :-
+
+		We can define different programming items of the AJS application.
+		
+		AJS module contains any of the following items :-
+		
+			i.	controllers
+			
+			ii.	filters
+			
+			iii.services
+			
+			iv. factories
+			
+			v.	directives
+			
+			vi. configurations
+			
+			vii. routes
+			
+----------------------------------------------------------------------------------------
+
+32. Module Creation.
+
+Ans. :-
+
+		We can create modules by using "module" method that is belongs to angular object.
+		
+		Usage :-
+		
+				var app = angular.module("ModuleName",[]);
+				
+		Arguments :-
+		
+				i. String		:-		Module Name
+				
+				ii.String Array	:-		Array of dependent module names.
+				
+--------------------------------------------------------------------------------------
+
+33. Creating module with dependent modules.
+
+Ans. :-
+
+		var app = angular.module("myApp",["ngRoute"]);
+		
+----------------------------------------------------------------------------------------
+
+Note :-
+
+		In the above statement myApp module is dependent on ngRoute module.
+		
+		So that myApp can access ngRoute module items.
+		
+		By default all modules that we are creating depends on "ng" module.
+		
+------------------------------------------------------------------------------------------

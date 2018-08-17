@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+		</style>
+</head>
+<body ng-app="myApp">
+		<h3>Working with Services In Angular JS</h3>
+			<hr>
+			<div ng-controller="democontroller">
+				Username : 
+				<input type="text" name="" ng-model="uname">
+				<br>
+				Password :
+				<input type="Password" name="" ng-model="pwd">
+				<br>
+				<input type="button" name="" ng-click="f2()" value="Login">
+				<h1>{{result}}</h1>
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
