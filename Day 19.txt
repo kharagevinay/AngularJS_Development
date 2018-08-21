@@ -1,0 +1,542 @@
+41. Custom Filters in AJS.
+
+Ans. :-
+
+		AJS framework provides pre-defined filters to filter the application data.
+		
+		ex. :-  uppercase, lowercase etc.
+		
+		If you want to create new filters as per your requirement, then you have to develop custom filters.
+		
+		ex. :- between filter, even number filter etc.
+		
+---------------------------------------------------------------------------------------
+
+42. What is Custom Filter?
+
+Ans. :-
+
+		Filters that we develop as per our customised requirement are called "Custom Filters".
+		
+		If the pre-defined filters does not fulfill your requirement, then we can go for Custom Filters.
+		
+		ex. :-
+		
+				i. Display name starts with "S".
+				
+				ii. Between the given range.
+				
+				iii. Filter only even numbers.
+				
+				iv. Filter only odd numbers.
+				
+				etc....
+				
+----------------------------------------------------------------------------------------
+
+43. How to create Custom Filters?
+
+Ans. :-
+
+		Angular module object provides a method called "Filters()" to create Custom Filters.
+		
+		Syntax :-
+		
+				app.filter("filtername",function()
+				{
+				
+					var f1 = function(input)
+					{
+					
+						//process input and prepare output
+						//return output
+					
+					};
+					
+					return f1;
+				
+				});
+				
+--------------------------------------------------------------------------------------
+
+Note :-
+
+		We can apply the filter on scalar item or collections of items.
+		
+		Depends on the requirement we need to develop the filter logic.
+		
+---------------------------------------------------------------------------------------
+
+Ex. 35. Create a web page to demonstrate usage of custom filter in AJS.
+
+Ans. :-
+
+		Required Files :-
+		
+				angular.js
+				app.js
+				demo.html
+				
+			app.js
+			
+				var app=angular.module("myApp",[]);
+				app.filter("demofilter",function()
+					{
+						var fn=function (input) 
+						{
+							var output="";
+							output=input.toUpperCase();
+							return output;
+						};
+						return fn;
+					});
+
+
+				app.filter("genderfilter",function()
+					{
+						var fn=function (input) 
+						{
+							var output="";
+							if(input == "M")
+							{
+								output="Male";
+							}
+
+							if(input == "F")
+							{
+								output="Female";
+							}
+							return output;
+						};
+						return fn;
+					});
+
+
+				app.controller("democontroller",function($scope)
+					{
+						$scope.e1={ename:"scott",gender:"M"};
+						$scope.e2={ename:"Nancy",gender:"F"};
+					});
+					
+					
+			demo.html
+			
+			<!DOCTYPE html>
+				<html>
+				<head>
+					<title></title>
+					<style type="text/css">
+							h3{
+								text-align: center;
+								padding: 20px;
+								font-size: 30px;
+								background-color: lightblue;
+								color: white;
+								margin: 0;
+							}
+						</style>
+				</head>
+				<body ng-app="myApp">
+						<h3>Custom Filter In Angular JS</h3>
+							<hr>
+							<div ng-controller="democontroller">
+								<h2>Employee1 Details</h2>	
+								<hr>
+								Name:{{e1.ename | demofilter}}<br>
+								Gender:{{e1.gender | genderfilter}}
+								<hr>
+								<h2>Employee2 Details</h2>	
+								<hr>
+								Name:{{e2.ename | demofilter}}<br>
+								Gender:{{e2.gender | genderfilter}}
+							</div>
+							<script type="text/javascript" src="angular.js"></script>
+							<script type="text/javascript" src="app.js"></script>
+					</body>
+				</html>
+				
+---------------------------------------------------------------------------------------
+
+Ex. 36. Custom Filter that filters the products based on the given range of price.
+
+Ans. :-
+
+		Required Files :-
+		
+				angular.js
+				app.js
+				demo.html
+				
+			app.js
+				
+				var app=angular.module("myApp",[]);
+				app.filter("rangefilter",function()
+					{
+						var f1=function (input,min,max) 
+						{
+							var output="";
+							for(var i in input)
+							{
+								if(input[i].price >= min && input[i].price <= max)
+								{
+									output.push(input[i]);
+								}
+							}
+							return output;
+						};
+						return f1;
+					});
+
+
+				app.controller("democontroller",function($scope)
+					{
+						$scope.x=1000;
+						$scope.y=10000;
+						$scope.products=[
+							{pname : "Mouse & Keyboard", brand : "HP", price : "1999"},
+							{pname : "Printer", brand : "Canon", price : "9999"},
+							{pname : "Laptop", brand : "Circle", price : "10000"},
+							{pname : "Mobile", brand : "Moto", price : "999"}
+						];
+					});
+							
+							
+				demo.html
+				
+					<html>
+						<head>
+							<title></title>
+							<style type="text/css">
+									h3{
+										text-align: center;
+										padding: 20px;
+										font-size: 30px;
+										background-color: lightblue;
+										color: white;
+										margin: 0;
+									}
+								</style>
+						</head>
+						<body ng-app="myApp">
+								<h3>Custom Filter In Angular JS</h3>
+									<hr>
+									<div ng-controller="democontroller">
+										Select Min Value :- 
+											<select ng-model="x">
+												<option>1000</option>
+												<option>2000</option>
+												<option>3000</option>
+												<option>4000</option>
+												<option>5000</option>
+											</select> 
+											<br><br>
+
+											Select Max Value :- 
+											<select ng-model="y">
+												<option>6000</option>
+												<option>7000</option>
+												<option>8000</option>
+												<option>9000</option>
+												<option>10000</option>
+											</select>
+											<br><br>
+											<table>
+												<tr>
+													<th>Product Name</th>
+													<th>Brand</th>
+													<th>Price</th>
+												</tr>
+												<tr ng-repeat="item in products | rangefilter : x : y">
+													<td>{{item.pname}}</td>
+													<td>{{item.brand}}</td>
+													<td>{{item.price}}</td>
+												</tr>
+											</table>
+									</div>
+									<script type="text/javascript" src="angular.js"></script>
+									<script type="text/javascript" src="app.js"></script>
+							</body>
+						</html>
+						
+---------------------------------------------------------------------------------------
+
+44. Custom Directives In AJS.
+
+Ans. :-
+
+		AJS directives are controls the rendering of the HTML markup inside an AJS application.
+		
+		Custom directives are used in AJS to extend the functionality of HTML.
+		
+		Custom directives are created by using "directive()" function of module object.
+		
+		User defined directives are called as "Custom Directives".
+		
+---------------------------------------------------------------------------------------
+
+Note :-
+
+		All pre-defined directives are prefix with "ng-".
+		
+-----------------------------------------------------------------------------------------
+
+45. Naming standerds for directives.
+
+Ans. :-
+
+		Directive name should be starts with lowercase letter.
+		
+		If multiple words are exists, from second word onwords each word first letter should be uppercase letter.
+		
+		At the time of using directives in the views, all characters should be in lowercase.
+		
+		Multiple words seperate with hyphen(-).
+		
+		Ex.
+		
+		Directive Name									Usage in View
+		~~~~~~~~~~~~~~									~~~~~~~~~~~~~
+		i. ngApp											ng-app
+		
+		ii. ngModel											ng-model
+		
+		iii.demoDirective									demo-directive
+		
+		iv. empList											emp-list
+		
+-----------------------------------------------------------------------------------------
+
+46. Type of Directives.
+
+Ans. :-
+
+		The type of a directive specified how the directive is used.
+		
+		i. Element Directives.
+		
+		ii. Attribute Directives.
+		
+		i. Element Directives :-
+		
+									An Element Directive is activated when AJS finds a matching HTML element in the HTML template(View).
+									
+									Ex. :-
+									
+											<directive> 
+													Content 
+											</directive>
+											
+		ii. Attribute Directives :-
+		
+									An Attribute Directive is activated when AJS finds a matching HTML element in the HTML attribute in View.
+									
+									Ex. :-
+									
+											<tag directive>
+											</tag>
+											
+----------------------------------------------------------------------------------------
+
+47. Creating Custom Directive.
+
+Ans. :-
+
+		In order to develop custom directive, we need to create DDO(Directive Defination Object).
+		
+		An object that we prepared to define to develop custom directive is called "DDO".
+		
+		It provides the instructions to AJS compiler so that it will generate the specified content.
+		
+		Syntax :-
+		
+				app.directive("directivename",function()
+				{
+				
+					var directobj = {};
+					//attach required properties
+					return directobj;
+				
+				});
+				
+		Properties that we assign to directive :-
+		
+			i. restrict
+			
+			ii. template
+			
+			iii. templateUrl
+			
+			i. restrict :-
+			
+							restrict property is responsible for telling AJS in which format our directive will be used in the view.
+							
+							By default, AJS expects that we will declare a custom directive as an attribute.
+							
+						Usage :-
+						
+								restrict = "EA / E / A";
+								
+			ii. template :-
+			
+							template is a string property.
+							
+							It contains any HTML content that will be generates in view.
+							
+							$scope variables also can be include inside the content.
+							
+						Usage :-
+						
+								template = "<h1> Hello...!</h1>";
+								
+										OR
+										
+								template = "<h1> Welcome to {{uname}} </h1>";
+								
+			iii. templateUrl :-
+			
+								It is a string property.
+								
+								It is used to set the path to an HTML file (partial view).
+								
+								This file contains only the required content that will generates by custom directive.
+								
+						Usage :-
+						
+								templateUrl = "Template1.html";
+								
+---------------------------------------------------------------------------------------
+
+Ex. 37. Create AJS application to demonstrate usage of custom directive. 
+
+Ans. :-
+
+			(This program run only server side - Mozila Firefox)
+			
+			Required Files :-
+			
+						angular.js
+						app.js
+						demo.html
+						template1.html
+						
+				app.js
+				
+					var app=angular.module("myApp",[]);
+					app.controller("democontroller",function($scope)
+						{
+							$scope.uname="scott";
+							$scope.students=[
+								{sid : 1025, sname : "scott", course : "HTML"},
+								{sid : 1026, sname : "smith", course : "CSS"},
+								{sid : 1027, sname : "arun", course : "JS"},
+								{sid : 1028, sname : "anand", course : "jQuery"}
+							];
+						});
+
+						<!-- "demoDirective" must be 'D' is uppercase, if 'd' lowercase then not display -->	
+							
+					app.directive("demoDirective",function()
+						{
+							var directobj={};
+							directobj.restrict="EA";
+							directobj.template="<h1>Welcome to {{uname}}</h1>";
+							return directobj;
+						});
+
+					app.directive("studentDetails",function()
+					{
+						var directobj={};
+						directobj.restrict="E";
+						directobj.templateUrl="template1.html";
+						return directobj;
+					});
+								
+
+				template1.html
+				
+					<table>
+						<tr>
+							<th>Student Id</th>
+							<th>Student Name</th>
+							<th>Course Name</th>
+						</tr>
+						<tr ng-repeat="item in students">
+							<td>{{item.sid}}</td>
+							<td>{{item.sname}}</td>
+							<td>{{item.course}}</td>
+						</tr>
+					</table>
+
+				
+				demo.html
+				
+					<html>
+						<head>
+							<title></title>
+							<style type="text/css">
+									h3{
+										text-align: center;
+										padding: 20px;
+										font-size: 30px;
+										background-color: lightblue;
+										color: white;
+										margin: 0;
+									}
+									table , th , td{
+									border: none;
+									text-align: center;
+									padding: 10px;
+									font-size: 25px;
+									}
+									table{
+										width: 100%;
+									}
+									th{
+										background-color: green;
+										color: white;
+									}
+									tr:nth-child(even){
+										background-color: #4CAF50;
+										color: white;
+									}
+									tr:nth-child(odd){
+										background-color: #54b275;
+										color: white;
+									}
+									th , td{
+										border-radius: 50px;
+									}
+									td:hover{
+										background-color: lightgreen;
+										color: black;
+										cursor: pointer;
+									}
+									select{
+										height: 30px;
+										width:150px;
+									}
+								</style>
+						</head>
+						<body ng-app="myApp">
+								<h3>Custom Filter In Angular JS</h3>
+									<hr>
+									<div ng-controller="democontroller">
+										<h2 align="center">Element Directive</h2>
+										<hr>
+										<demo-directive></demo-directive>
+										<br><br>
+										<hr>
+										<h2 align="center">Attribute Directive</h2>
+										<hr>
+										<div demo-directive>
+										</div>
+										<br><br>
+										<hr>
+										<student-details></student-details>
+									</div>
+									<script type="text/javascript" src="angular.js"></script>
+									<script type="text/javascript" src="app.js"></script>
+							</body>
+						</html>
+						
+----------------------------------------------------------------------------------------

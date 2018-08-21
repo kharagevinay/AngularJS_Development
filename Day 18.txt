@@ -1,0 +1,410 @@
+38. ii. Service creation with factory()
+
+Ans. :-
+
+		Factory method also used to create services in AJS.
+		
+		Factory function is consider as normal function, where as service function is consider constructor function.
+		
+		It factory() we need to create the object. In service() AJS framework will create the object at runtime.
+		
+		Syntax :-
+		
+				app.factory("ServiceName",function()
+				{
+				
+					var FactObj = {};
+					
+					//attach variables or functions to factory object.
+					
+					return FactObj;
+				
+				});
+				
+		Example :-
+		
+				app.factory("LoginService",function()
+				{
+				
+					var FactObj = {};
+					
+					FactObj.isValidUser = function(uid,pwd)
+					{
+					
+						//required code
+					
+					};
+					return FactObj;
+				
+				});
+				
+---------------------------------------------------------------------------------------
+
+39. Factory method using short-cut notation.
+
+Ans. :-
+
+		app.factory("LoginService",function()
+		{
+			return
+			{
+				isValidUser : function(uid,pwd)
+				{
+				
+					//required code
+				
+				}
+			};
+		});
+		
+--------------------------------------------------------------------------------------
+
+40. Difference between Service() and Factory().
+
+Ans. :-
+		Service() and Factory() methods will perform same activity.
+		
+		Both are used to reusing the application logic across AJS application.
+		
+		Difference comes in object creation process.
+		
+		i) Service() :-
+				
+					Object will be prepared by AJS framework.
+					
+					AJS consider Service function as constructor function to create object.
+					
+					AJS uses singleton technique(single object) to organize the objects.
+					
+		ii) Factory() :-
+		
+					object will br preparedby programmer.
+					
+					AJS will get the object which return by factory implemented function.
+					
+-----------------------------------------------------------------------------------------
+
+Ex. 32. Create AJS application to develop LoginService by using Factory method.
+
+Ans. :-
+
+		Required files :-
+		
+				angular.js
+				app.js
+				demo.html
+				
+			app.js
+			
+				var  app =  angular.module("myApp", []);
+ 
+				 app.factory("DeptService",  function()
+				 {
+					 var obj =  {};
+					 
+					 obj.ar  = [];		// object data
+					 
+					 obj.getDepts   =   function()
+					 {
+						obj.ar  = [
+						{deptno: 15, dname : "Accounts", loc : "Hyd"},
+						{deptno: 25, dname : "Sales", loc : "Pune"}
+						];
+						
+						return obj.ar;		 
+					 };
+					 
+					 
+					 obj.addDept  =  function(  deptObj   )
+					 {
+						obj.ar.push(deptObj);
+					 };
+					 
+					 
+					 obj.removeDept  = function(n )
+					 {
+						obj.ar.splice(n,  1);
+					 };
+					 
+					 
+					 return obj;
+				 });
+				 
+				  app.controller("DemoController", function($scope,  DeptService)
+				  {
+						$scope.s1  = 0;
+						$scope.s2  = "";
+						$scope.s3  = "";  
+						$scope.depts =   DeptService.getDepts();
+								
+						 
+					$scope.f1  =  function()
+					{	 
+						var obj = {};
+						obj.deptno  = $scope.s1;
+						obj.dname  = $scope.s2;
+						obj.loc  = $scope.s3;		
+						DeptService.addDept(   obj );
+					};	
+					
+					
+					$scope.f2 = function(  x   )
+					{	
+						 DeptService.removeDept(x);
+					}; 
+								
+				 }); 
+				 
+				
+			demo.html
+			
+				<html>
+					<head>
+						<style type="text/css">
+							h3{
+								text-align: center;
+								padding: 20px;
+								font-size: 30px;
+								background-color: lightblue;
+								color: white;
+								margin: 0;
+							}
+							table , th , td{
+							border: none;
+							text-align: center;
+							padding: 10px;
+							font-size: 25px;
+							}
+							table{
+								width: 100%;
+							}
+							th{
+								background-color: green;
+								color: white;
+							}
+							tr:nth-child(even){
+								background-color: #4CAF50;
+								color: white;
+							}
+							tr:nth-child(odd){
+								background-color: #54b275;
+								color: white;
+							}
+							th , td{
+								border-radius: 50px;
+							}
+							td:hover{
+								background-color: lightgreen;
+								color: black;
+								cursor: pointer;
+							}
+						</style>
+					</head>
+						<body  ng-app="myApp">
+							<h3> Dynamic Operations In AJS</h3>
+							<hr/>
+							<div ng-controller="DemoController">   
+								Deptno : 
+									<input  ng-model="s1" />
+									<br></br>
+								Dname : 
+									<input  ng-model="s2" />
+									<br></br>
+								Location : 
+									<input  ng-model="s3" />
+									<input type="button" ng-click="f1()" value="Add Dept" />
+									<br></br>
+										<table border="2">
+											<tr>
+												<th>Deptno</th>
+												<th>Dname</th>
+												<th>Location</th>		
+											</tr>		
+											<tr ng-repeat="item in depts">		
+												<td>{{item.deptno}}</td>
+												<td>{{item.dname}}</td>
+												<td>{{item.loc}}</td>	 
+												<td>
+													<input type="button" ng-click="f2( $index  )" value="Remove" />
+												</td>
+											</tr>		
+										</table> 
+							</div>			 
+							<script  src="angular.js"> </script>
+							<script  src="app.js"></script>
+						</body>
+				</html>
+						
+-----------------------------------------------------------------------------------------
+
+Ex. 33. Create AJS application to develop department details by using Factory method.
+
+Ans. :-
+
+		Required files :-
+		
+				angular.js
+				app.js
+				demo.html
+				
+				
+				
+				
+				
+
+----------------------------------------------------------------------------------------
+
+Ex. 34. Create AJS application to develop dynamic operation by using factory method.
+
+Ans. :-
+
+		Required files :- 
+
+					angular.js
+					app.js
+					demo.html
+					
+			app.js
+			
+			
+				var  app =  angular.module("myApp", []);
+ 
+				 app.factory("DeptService",  function()
+				 {
+					 var obj =  {};
+					 
+					 obj.ar  = [];		// object data
+					 
+					 obj.getDepts   =   function()
+					 {
+						obj.ar  = [
+						{deptno: 15, dname : "Accounts", loc : "Hyd"},
+						{deptno: 25, dname : "Sales", loc : "Pune"}
+						];
+						
+						return obj.ar;		 
+					 };
+					 
+					 
+					 obj.addDept  =  function(  deptObj   )
+					 {
+						obj.ar.push(deptObj);
+					 };
+					 
+					 
+					 obj.removeDept  = function(n )
+					 {
+						obj.ar.splice(n,  1);
+					 };
+					 
+					 
+					 return obj;
+				 });
+				 
+				  app.controller("DemoController", function($scope,  DeptService)
+				  {
+						$scope.s1  = 0;
+						$scope.s2  = "";
+						$scope.s3  = "";  
+						$scope.depts =   DeptService.getDepts();
+								
+						 
+					$scope.f1  =  function()
+					{	 
+						var obj = {};
+						obj.deptno  = $scope.s1;
+						obj.dname  = $scope.s2;
+						obj.loc  = $scope.s3;		
+						DeptService.addDept(   obj );
+					};	
+					
+					
+					$scope.f2 = function(  x   )
+					{	
+						 DeptService.removeDept(x);
+					}; 
+								
+				 }); 
+				 
+				 
+			demo.html
+			
+				<html>
+					<head>
+						<style type="text/css">
+							h3{
+								text-align: center;
+								padding: 20px;
+								font-size: 30px;
+								background-color: lightblue;
+								color: white;
+								margin: 0;
+							}
+							table , th , td{
+							border: none;
+							text-align: center;
+							padding: 10px;
+							font-size: 25px;
+							}
+							table{
+								width: 100%;
+							}
+							th{
+								background-color: green;
+								color: white;
+							}
+							tr:nth-child(even){
+								background-color: #4CAF50;
+								color: white;
+							}
+							tr:nth-child(odd){
+								background-color: #54b275;
+								color: white;
+							}
+							th , td{
+								border-radius: 50px;
+							}
+							td:hover{
+								background-color: lightgreen;
+								color: black;
+								cursor: pointer;
+							}
+						</style>
+					</head>
+						<body  ng-app="myApp">
+							<h3> Working with Factory In Angular JS </h3>
+							<hr/>
+							<div ng-controller="DemoController">   
+								Deptno : 
+									<input  ng-model="s1" />
+									<br></br>
+								Dname : 
+									<input  ng-model="s2" />
+									<br></br>
+								Location : 
+									<input  ng-model="s3" />
+									<input type="button" ng-click="f1()" value="Add Dept" />
+									<br></br>
+										<table border="2">
+											<tr>
+												<th>Deptno</th>
+												<th>Dname</th>
+												<th>Location</th>		
+											</tr>		
+											<tr ng-repeat="item in depts">		
+												<td>{{item.deptno}}</td>
+												<td>{{item.dname}}</td>
+												<td>{{item.loc}}</td>	 
+												<td>
+													<input type="button" ng-click="f2( $index  )" value="Remove" />
+												</td>
+											</tr>		
+										</table> 
+							</div>			 
+							<script  src="angular.js"> </script>
+							<script  src="app.js"></script>
+						</body>
+				</html>
+						
+-----------------------------------------------------------------------------------------
+						

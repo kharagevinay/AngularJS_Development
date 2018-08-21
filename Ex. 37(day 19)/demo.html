@@ -1,0 +1,69 @@
+<!-- 37. Create AJS application to demonstrate usage of custom directive. -->
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+			table , th , td{
+            border: none;
+            text-align: center;
+            padding: 10px;
+            font-size: 25px;
+	        }
+	        table{
+	            width: 100%;
+	        }
+	        th{
+	            background-color: green;
+	            color: white;
+	        }
+	        tr:nth-child(even){
+	            background-color: #4CAF50;
+	            color: white;
+	        }
+	        tr:nth-child(odd){
+	            background-color: #54b275;
+	            color: white;
+	        }
+	        th , td{
+	            border-radius: 50px;
+	        }
+	        td:hover{
+	            background-color: lightgreen;
+	            color: black;
+	            cursor: pointer;
+	        }
+	        select{
+	        	height: 30px;
+	        	width:150px;
+	        }
+		</style>
+</head>
+<body ng-app="myApp">
+		<h3>Custom Filter In Angular JS</h3>
+			<hr>
+			<div ng-controller="democontroller">
+				<h2 align="center">Element Directive</h2>
+				<hr>
+				<demo-directive></demo-directive>
+				<br><br>
+				<hr>
+				<h2 align="center">Attribute Directive</h2>
+				<hr>
+				<div demo-directive>
+				</div>
+				<br><br>
+				<hr>
+				<student-details></student-details>
+			</div>
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
