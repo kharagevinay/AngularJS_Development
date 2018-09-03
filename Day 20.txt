@@ -1,0 +1,253 @@
+48. Single Page Application in AJS.
+
+Ans. :-
+
+		In SPA loading the required content from server dynamically into single page.
+		
+		In SPA, multiple pages are organized using single page.
+		
+		SPA is avoiding complete page reloading. Because it updates required portion of the page.
+		
+		If we use other Javascript libraries / frameworks. We will face same particle problems due to implement SPA.
+		
+		AJS will provides all the features to implement SPA with required facilities.
+
+		In SPA development, maintaining route details is the main challenging task. AJS address this task by using routing concept.
+		
+-----------------------------------------------------------------------------------------
+
+49.	Route configuration in AJS.
+
+Ans. :-
+		We can configure the routes in AJS using "$routeProvider" as follows :-
+		
+		app.config(function($routeProvider)
+		{
+		
+			.when("/students",
+			{
+			
+				templateUrl : "students.html",
+				controller : "studentcontroller"
+			
+			})
+			
+			.when("/courses",
+			{
+			
+				templateUrl : "courses.html",
+				controller : "coursescontroller"
+			
+			})
+			
+			.otherwise
+			({
+			
+				redirectTo : "/Home"
+			
+			});	
+			
+		
+		});
+		
+----------------------------------------------------------------------------------------
+
+Note :-
+
+		$routeProvider service is belongs to ngRoute module.
+		
+		ngRoute module is defined in "angular-route.js" file.
+		
+----------------------------------------------------------------------------------------
+
+51. Steps to implement SPA.
+
+Ans. :-
+
+		i. Create module object with dependent module called "ngRoute".
+		
+			var app = angular.module("myApp",["ngRoute"]);
+			
+		ii. Define required controllers and partial views.
+		
+		iii. Provide configuration details to mapping the routes with controller and 	view using "$routeProvider".
+		
+		iv. Import required script files.
+		
+				a. angular.js
+				
+				b. angular-route.js
+				
+				c. app.js (User Defined File)
+				
+			Hint :-
+		
+				Download angular-route.js from below link.
+				
+				https://code.angular.org/1.6.9/angular-route.js
+				
+		v. Prepared required hyperlinks and other content in the main page.
+		
+			<a href = "#!Home">Home</a>
+			
+			<a href = "#!Students">Students</a>
+			
+		vi. Create a div tag with "ng-view" directive to aload partial view.
+		
+			<div ng-view>
+			</div>
+			
+----------------------------------------------------------------------------------------
+
+Ex. 38. Create AJS application to implement SPA using AJS Routeing.
+
+Ans. :-
+		
+		Required Files :-
+		
+			angular.js
+			angular-route.js
+			app.js
+			students.html
+			courses.html
+			home.html
+			demo.html
+			
+		app.js
+		
+			var app=angular.module("myApp",["ngRoute"]);
+
+			app.controller("studentcontroller",function($scope)
+				{
+					$scope.students = [
+						{sname : "scott", course : "HTML"},
+						{sname : "ram" ,course : "CSS"},
+						{sname : "amith" ,course : "jQuery"},
+						{sname : "smith" ,course : "Angular JS"}
+					];		
+				});
+
+			app.controller("coursescontroller",function($scope)
+				{
+					$scope.courses=["HTML","CSS","jQuery","Angular JS"];
+				});
+
+			app.config(function($routeProvider)
+			{
+				$routeProvider
+					.when("/home",
+					{
+						templateUrl : "home.html",
+						controller : ""
+					})
+					.when("/students",
+					{
+						templateUrl : "students.html",
+						controller : "studentcontroller"
+					})
+					.when("/courses",
+					{
+						templateUrl : "courses.html",
+						controller : "coursescontroller"
+					})
+					.otherwise
+					({
+						redirectTo : "/home"
+					});
+					
+			});
+			
+		
+		students.html
+		
+		<h3>All Student Details</h3>
+			<hr>
+			<table>
+				<tr>
+					<th>Student Name</th>
+					<th>Course Name</th>
+				</tr>
+				<tr ng-repeat = "item in students">
+					<td>{{item.sname}}</td>
+					<td>{{item.course}}</td>
+				</tr>
+			</table>
+					
+		courses.html
+		
+		<h3>Courses</h3>
+			<hr>
+			<ul>
+				<li ng-repeat = "item in courses">
+					{{item}}
+				</li>
+			</ul>
+			
+		home.html
+		
+		<h3>home</h3>
+		
+		demo.html
+		
+			<html>
+				<head>
+					<title></title>
+					<style type="text/css">
+							h3{
+								text-align: center;
+								padding: 20px;
+								font-size: 30px;
+								background-color: lightblue;
+								color: white;
+								margin: 0;
+							}
+							table , th , td{
+							border: none;
+							text-align: center;
+							padding: 10px;
+							font-size: 25px;
+							}
+							table{
+								width: 100%;
+							}
+							th{
+								background-color: green;
+								color: white;
+							}
+							tr:nth-child(even){
+								background-color: #4CAF50;
+								color: white;
+							}
+							tr:nth-child(odd){
+								background-color: #54b275;
+								color: white;
+							}
+							th , td{
+								border-radius: 50px;
+							}
+							td:hover{
+								background-color: lightgreen;
+								color: black;
+								cursor: pointer;
+							}
+							select{
+								height: 30px;
+								width:150px;
+							}
+						</style>
+				</head>
+				<body ng-app="myApp">
+						<h3>SPA Developing In Angular JS</h3>
+							<hr>
+								<a href="#!home">Home</a>
+								<a href="#!students">Students</a>
+								<a href="#!courses">Courses</a>
+								<div ng-view></div>
+						
+							<script type="text/javascript" src="angular.js"></script>
+							<script type="text/javascript" src="angular-route.js"></script>
+							<script type="text/javascript" src="app.js"></script>
+					</body>
+				</html>
+				
+---------------------------------------------------------------------------------------

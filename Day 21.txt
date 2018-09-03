@@ -1,0 +1,227 @@
+52. Developing AJS UI(views) with Bootstrap.
+	What is Bootstrap?
+	
+Ans. :-
+
+			Bootstrap is client side programming library for web applications.
+			
+			It provides pre-defined styles in order to make your UI more richness.
+			
+			Bootstrap files need to download from the following website.
+			
+			http://getbootstrap.com
+			
+			https://www.bootstrapcdn.com
+			
+			Required files :-
+			
+					bootstrap.min.css
+					
+-------------------------------------------------------------------------------------------
+
+53. How to include Bootstrap in Web page?
+
+Ans. :-
+
+		<link href = "bootstrap.min.css" rel="stylesheet">
+		
+----------------------------------------------------------------------------------------
+
+54. Applying bootstrap classes to Buttons.
+
+Ans. :-
+
+		Standard Approach :-
+		
+				<input type = "button" class = "btn btn-primary" value = "Login">
+			
+		Using AJS Directive :-
+		
+			<input type = "button" class = "{'btn btn-primary':true}" value = "Login">
+			
+---------------------------------------------------------------------------------------
+
+55. Bootstrap classes for Buttons.
+
+Ans. :-
+
+		btn btn-default
+		
+		btn btn-primary
+		
+		btn btn-success
+		
+		btn btn-danger
+		
+		btn btn-inverse
+		
+		btn btn-info
+		
+		btn btn-warning
+		
+----------------------------------------------------------------------------------------
+
+56. Grouping Buttons.
+
+Ans. :-
+
+		<div class = "btn group-vertical">
+		
+			<input type ="button">
+			
+			<input type ="button">
+			
+		</div>
+		
+---------------------------------------------------------------------------------------
+
+57. Bootstrap class applicable to Table.
+
+Ans. :-
+
+		i. table tag :-
+		
+				table
+				
+				table-dark
+				
+				table-inverse
+
+					
+		ii. tr tag :-
+		
+				a. Light Colors :-
+				
+						table-primary
+						
+						table-success
+						
+						table-danger
+						
+						table-warning
+						
+						table-info
+						
+						
+				b. Dark Colors :-
+				
+						bg-primary
+						
+						bg-success
+						
+						bg-danger
+						
+						bg-warning
+						
+						bg-info
+						
+----------------------------------------------------------------------------------------
+
+Ex. 39. Create a web page to apply Bootstrap styles to AJS.
+
+Ans. :-
+
+		<html>
+			<head>
+				<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+				<title></title>
+				<style type="text/css">
+						h3{
+							text-align: center;
+							padding: 20px;
+							font-size: 30px;
+							background-color: lightblue;
+							color: white;
+							margin: 0;
+						}
+						table , th , td{
+						border: none;
+						text-align: center;
+						padding: 10px;
+						font-size: 25px;
+						}
+						table{
+							width: 100%;
+						}
+						th{
+							background-color: green;
+							color: white;
+						}
+						tr:nth-child(even){
+							background-color: #4CAF50;
+							color: white;
+						}
+						tr:nth-child(odd){
+							background-color: #54b275;
+							color: white;
+						}
+						th , td{
+							border-radius: 50px;
+						}
+						td:hover{
+							background-color: lightgreen;
+							color: black;
+							cursor: pointer;
+						}
+						select{
+							height: 30px;
+							width:150px;
+						}
+					</style>
+			</head>
+			<body ng-app="myApp">
+					<h3>Applying Styles Using Bootstrap In Angular JS</h3>
+						<hr>
+						<div ng-controller="democontroller">
+							<div class="btn-group">
+								<input type="button" name="" ng-click="show()" class="btn btn-primary" value="Get Depts">
+								<input type="button" name="" ng-click="add()" class="btn btn-success" value="ADD Depts">
+								<input type="button" name="" ng-click="clear($index)" class="btn btn-danger" value="Clear Depts">
+							</div>
+							<br>
+							<table class="table">
+								<tr class="bg-primary">
+									<td>S.No</td>
+									<td>Sname</td>
+									<td>Location</td>
+								</tr>
+								<tr ng-repeat="item in stud">
+									<td>{{item.sno}}</td>
+									<td>{{item.sname}}</td>
+									<td>{{item.loc}}</td>
+								</tr>
+							</table>
+						</div>
+						<script type="text/javascript" src="angular.js"></script>
+						<script type="text/javascript">
+							var app = angular.module("myApp",[]);
+							app.controller("democontroller",function($scope)
+								{
+									$scope.stud=[];
+									$scope.show=function()
+									{
+										$scope.stud=[{sno:10,sname:"ram",loc:"hyd"},
+													 {sno:20,sname:"sham",loc:"pune"},
+													 {sno:30,sname:"ram",loc:"hyd"},
+													 {sno:40,sname:"sham",loc:"pune"},];
+									};
+
+									$scope.add=function()
+									{
+										var obj=[];
+										obj.sno=50;
+										obj.sname="arun";
+										obj.loc="kop";
+										$scope.stud.push(obj);
+									};
+
+									$scope.clear=function(idx)
+									{
+										$scope.stud.splice(idx,1);
+									};
+								});
+						</script>
+				</body>
+			</html>
+			
+-----------------------------------------------------------------------------------------

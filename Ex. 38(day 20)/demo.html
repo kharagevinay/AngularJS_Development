@@ -1,0 +1,61 @@
+<!-- 38. Create AJS application to implement SPA using AJS Routeing. -->
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+			h3{
+				text-align: center;
+				padding: 20px;
+				font-size: 30px;
+				background-color: lightblue;
+				color: white;
+				margin: 0;
+			}
+			table , th , td{
+            border: none;
+            text-align: center;
+            padding: 10px;
+            font-size: 25px;
+	        }
+	        table{
+	            width: 100%;
+	        }
+	        th{
+	            background-color: green;
+	            color: white;
+	        }
+	        tr:nth-child(even){
+	            background-color: #4CAF50;
+	            color: white;
+	        }
+	        tr:nth-child(odd){
+	            background-color: #54b275;
+	            color: white;
+	        }
+	        th , td{
+	            border-radius: 50px;
+	        }
+	        td:hover{
+	            background-color: lightgreen;
+	            color: black;
+	            cursor: pointer;
+	        }
+	        select{
+	        	height: 30px;
+	        	width:150px;
+	        }
+		</style>
+</head>
+<body ng-app="myApp">
+		<h3>SPA Developing In Angular JS</h3>
+			<hr>
+				<a href="#!home">Home</a>
+				<a href="#!students">Students</a>
+				<a href="#!courses">Courses</a>
+				<div ng-view></div>
+		
+			<script type="text/javascript" src="angular.js"></script>
+			<script type="text/javascript" src="angular-route.js"></script>
+			<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
